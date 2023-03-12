@@ -1,0 +1,80 @@
+Webtervezés projekt követelmények - 1. mérföldkő (iWiW oldal)
+
+Alapvető elemek (követelmények teljesítése kötelező, nem jár értük külön pont, ha nincs meg valamelyik alpont akkor -10 pont):
+- .ZIP kiterjesztésű fájlban van beadva a projekt (logikailag megfelelően rendezve, pl. css fájlok css mappába, képek img-be stb.)
+- Minden útvonal érvényesen van megadva (működnek a képek, elérési útvonalak, akárhol ki van csomagolva)
+
+- A csapattagok a megadott határidőig, az arra kijelölt helyen kiválasztották a projekt témáját.
+- A projekt a megadott témában készült, minden HTML oldal azzal kapcsolatos
+
+- A projekt tartalmaz legalább 5, értelmes, témához kapcsolódó funkcionális HTML oldalt, amelyek kellő részletességgel ki vannak dolgozva
+- Legfeljebb 1 kivétellel az összes HTML oldal szabványos (de legalább 5 szabványos oldal el van készítve)
+
+- A projekt nem tartalmaz nem engedélyezett technológiákat, vagy nem engedélyezett eszközökkel készített programrészeket
+
+- A projekt nem tartalmaz a felsoroltakon kívüli, a gyakvezető által súlyosnak ítélt hibát, hiányosságot
+
+
+Általános szempontok (legfeljebb 45 pont szerezhető):
+- A HTML oldalak egységes dizájnnal készültek, minden oldal hasonló felépítésű és egységes dizájnt használ (0/2/4 pont)
+- Az elkészített weboldalak logikusan vannak felépítve, könnyen érthető, hogy mi holt található meg, hogy mi hova tartozik (0/3 pont)
+- A weboldalak tartalma esztétikusan van elrendezve, a színek esztétikusan vannak kiválasztva (0/1/3 pont)
+- Az oldalakon minden információ jól olvasható, nem lógnak egybe szövegek, elegendő hely az elemek között stb. (0/1/3 pont)
+- Az űrlapok intuitívak, egyértelmű, hogy mi hova tartozik, és hova mit kell beírni (0/2 pont)
+- Az oldal rendelkezik böngészőfülön megjelenő ikonnal (0/1 pont)
+- A weboldalak igényesen vannak elkészítve, modernnek néznek ki (0/4/8 pont)
+
+- A rendelkezésre álló menüpontok minden oldalon láthatóak, a navigáció közöttük megfelelően működik (0/2 pont)
+- A felasználó mindig tudja, hogy melyik oldalon van éppen (pl. aktuális menüpont más dizájnt mutat) (0/2 pont)
+- A menü interaktív, kurzor rávitelére változik a menü kinézete (0/2 pont)
+- A menü/oldal fejléc az oldal görgetésénél is látszik (0/2 pont)
+
+- Oldal tartalma igényesen animálva jelenik meg (pl. elemek beűsznak, fokozatos megjelenés stb.) (0/3/6 pont)
+- Egyéb igényes animáció (elemekre, háttérre stb.) (0/2/4 pont)
+- Oldalon lévő egyes elemek (indokolt esetben) a kurzorral interakcióba lépnek (pl. gombok, kártyák stb.) (0/2/4 pont)
+
+- A HTML oldalak reszponzívak, különböző méretű kijelzőkön is megfelelőn néznek ki (0/5/10 pont)
+
+
+Felhasznált elemek (legfeljebb 45 pont szerezhető): 
+- Az oldal tartalmaz legalább 1 űrlapot, amelynek van legalább 4 megfelelő módon felhasznált input mezője (0/2 pont)
+- Összesen legalább 6 különböző típusú, értelmesen felhasznált input mező (0/2 pont)
+- Van olyan űrlap, amelyik tartalmaz elküldés (submit) gombot (0/2 pont)
+- Van olyan űrlap, amelyik tartalmaz alapállapot (reset) gombot (0/2 pont)
+- Van olyan űrlap, amelyik tartalmaz mezőcsoportosítást (0/2 pont)
+
+- A weboldal HTML5 elemek megfelelő használatával van kialakítva (header, footer, nav, aside, main section, article) (mindegyik 1 pont, max 3 pont)
+
+- A weboldal legalább 1 táblázatot tartalmaz (0/2 pont)
+- Létezik olyan táblázat, amelynek van fejléce, ami másképpen jelenik meg (0/1 pont)
+- Létezik olyan táblázat, amely használ headers attribútumot a megfelelő módon (0/1 pont)
+
+- A projekt tartalmaz legalább 1 CSS fájlt, és az fel is van használva (0/1 pont)
+- Elem szektor használata legalább 1 helyen (0/1 pont)
+- Id szelektor használata legalább 1 helyen (0/1 pont)
+- Class szelektor használata legalább 1 helyen (0/1 pont)
+- Attribútum alapján való kijelölés használva van legalább 1 helyen (0/1 pont)
+- Kapcsolat alapján való kijelölés használva van legalább 1 helyen (0/1 pont)
+- z-index használata (0/1 pont)
+- Úsztatás és annak megszüntetése (float és clear) (0/1/2 pont)
+- Pseudo-elemek használata (before, after, selection, first-letter, first-line stb.) (mindegyik 1 pont, max 2 pont)
+- Létezik olyan HTML oldal, amelyhez tartozik igényesen elkészített nyomtatási stíluslap (0/2 lap)
+- Minden HTML oldalhoz van igényesen elkészített nyomtatási stíluslap (0/3 pont)
+
+- A weboldal tartalmaz multimédiás elemeket (hang- és videóállomány) (0/1/2 pont)
+
+- Strukturális elemek céljuknak megfelelően használva (címsor, p, iframe, em strong, code, sub, sup, mark hr, pre, q stb.) (mindegyik 1 pont, max 4 pont)
+- Listák használata (0/1 pont)
+- Flexbox vagy grid használata (0/3 pont)
+
+- Szegély használata (border) (0/1 pont)
+- Lekerekített sarkok használata (0/1 pont)
+- Háttérszín/háttérkép használata (0/1 pont)
+- Szövegek formázása (letter-spacing, line-height, text-align, text-decoration) (0/1 pont)
+- Pozicionálás (absolute, fixed, relative, static, sticky) (mindegyik 1 pont, max 3 pont)
+- Árnyékok használata (HTML elemekre vagy szövegekre) (0/1 pont)
+- Transzformálás (eltolás, forgatás, skálázás, nyírás) használata (mindegyik 1 pont, max 2 pont)
+
+
+
+
