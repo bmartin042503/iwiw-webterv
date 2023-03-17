@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background-color: #ededed;
+    background-color: #051865;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -19,11 +19,15 @@ header {
     top: 0;
     width: 100%;
     padding: 10px;
+    color: white;
 }
 
 .logo img {
     max-height: 42.5px;
     margin-left: 5px;
+    background-color: white;
+    padding: 7px;
+    border-radius: 20px;
     width: auto;
 }
 
@@ -41,27 +45,54 @@ nav {
 ul {
     display: flex;
     list-style: none;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
 
 li {
     margin: 0 10px;
+    padding: 0;
 }
 
 main {
     position: fixed;
-    top: 50px;
+    top: 70px;
     left: 0;
     display: flex;
     flex-direction: row;
 }
 
-#sbar {
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
+.search-container {
+    position: relative;
+    padding-left: 15px;
+}
+
+.search-container input {
+    padding: 10px 10px 10px 40px;
     border-radius: 20px;
-    outline: none;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.search-container img {
+    position: absolute;
+    top: 8px;
+    left: 26.5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+.side-notifications {
+    padding: 15px;
+    background-color: #F5F5F5;
+}
+
+.icon {
+    height: 35px;
+}
+
+.icon:hover {
+    cursor: pointer;
 }
