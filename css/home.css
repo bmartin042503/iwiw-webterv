@@ -90,9 +90,27 @@ main {
 }
 
 .icon {
+    height: 27.5px;
+    transition: filter 0.2s ease-in-out;
+}
+
+.icon.menu {
+    padding-right: 60px;
+}
+
+.icon.profile {
+    padding-right: 10px;
+}
+
+.icon.profile.pic {
     height: 35px;
+    width: 35px;
+    border-radius: 5px;
+    padding-right: 0px;
+    margin-right: 10px;
 }
 
 .icon:hover {
     cursor: pointer;
+    filter: brightness(60%);
 }
