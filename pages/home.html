@@ -4,8 +4,48 @@
         <title>Kezdőlap | iWiW</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="../css/home.css"/>
+        <link rel="icon" type="image/x-icon" href="../img/iwiw-logo-16x16.png"/>
     </head>
     <body>
-        <h1>kezdőlap</h1>
+        <header>
+            <div class="logo">
+                <a href=""><img src="../img/iwiw-logo.png"/></a>
+            </div>
+            <nav>
+                <ul>
+                    <li>Események</li>
+                    <li>Ismerősök</li>
+                    <li>Klubok</li>
+                    <li>Fórum</li>
+                    <li>Alkalmazások</li>
+                    <li>Apró</li>
+                </ul>
+            </nav>
+            <nav>
+                <ul>
+                    <li>Jelölések</li>
+                    <li>Üzenetek</li>
+                    <li>Profilom</li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="side-notifications">
+                <form method="GET">
+                    <input type="text" id="sbar" name="searchbar" placeholder="Keresés az iWiW-en.."/>
+                </form>
+                <div class="container reminders">
+                    <span>Emlékeztetők</span>
+
+                </div>
+            </div>
+            <div class="posts">
+                <h1>Hírfolyamok</h1>
+            </div>
+            <div class="ad-container">
+                <h1>Hirdetés</h1>
+            </div>
+        </main>
     </body>
 </html>
