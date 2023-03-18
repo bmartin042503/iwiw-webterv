@@ -1,0 +1,89 @@
+form > input:not([type="file"]),
+form > select,
+form > textarea {
+    margin: 10px auto;
+    padding: 10px;
+    display: block;
+    margin: 10px auto 13px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 60%;
+    font-size: 1em;
+    border: .5px solid rgb(225, 225, 225);
+}
+
+form > input[type="reset"],form > input[type="submit"]{
+    display: inline;
+    width: 46%;
+    margin: auto 2%;
+}
+
+form > input[type="submit"]{
+    float:right;
+}
+
+input[type="submit"] {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: #051865;
+}
+
+input[type="submit"]:hover {
+    background-color: #041147;
+}
+
+input[type="reset"] {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: #f75d5d;
+}
+
+input[type="reset"]:hover {
+    background-color: #fc2a2a;
+}
+
+
+
+h1{
+    font-size: 2.4em;
+}
+
+.maincontainer {
+    width: 600px;
+}
+@media screen and (max-width: 600px) {
+    .maincontainer {
+        width: 100%;
+    }
+}
+
+.iwiwlogo{
+    height: 40px;
+}
+
+.title{
+    margin-bottom: 30px;
+}
+
+.checkbox-container{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.checkbox-container label{
+    display: block;
+}
+
+.radio-button-container{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+label,.pseudo-label{
+    font-size: 1.4em;
+}

@@ -2,9 +2,70 @@
     <html lang="hu">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/footers.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/register.css"/>
+        <link rel="icon" type="image/x-icon" href="../img/iwiw-logo-16x16.png"/>
         <title>Regisztréció - iWiW</title>
     </head>
     <body>
+        <div class="maincontainer">
+            <div class="text">
+                <div class="title">
+                    <a href="../.."><img src="../../img/iwiw-logo.png" alt="iWiW" class="iwiwlogo"/></a>
+                    <h1>regisztráció</h1>
 
+                    <form action="#" method="post" autocomplete="off" enctype="multipart/form-data">
+                        <label for="username-label">Név:</label>
+                        <input type="text" name="username" id="username-label" placeholder="" required>
+
+                        <label for="email-label">E-mail cím:</label>
+                        <input type="email" name="email" id="email-label" placeholder="pelda@citromail.hu" required>
+
+                        <label for="password-label">Jelszó:</label>
+                        <input type="password" name="password" id="password-label" required>
+
+                        <label for="password-check-label">Jelszó ismét:</label>
+                        <input type="password" name="password-check" id="password-check-label" required>
+
+                        <label for="year-of-birth-label">Születési év:</label>
+                        <input type="number" name="year-of-birth" id="year-of-birth-label" min="1900" max="2023" required>
+
+                        <div class="radio-button-container">
+                            <span class="pseudo-label">Nem:</span>
+                            <label><input type="radio" name="gender" value="male" required> Férfi</label>
+                            <label><input type="radio" name="gender" value="female"> Nő</label>
+                            <label><input type="radio" name="gender" value="other"> Egyéb</label>
+                        </div>
+
+                        <label for="introduction-label">Bemutatkozás (opcionális, max. 600 karakter): </label>
+                        <textarea name="introduction" id="introduction-label" maxlength="600" rows="7"></textarea>
+
+                        <label for="profile-picture-label">Profilkép: (opcionális)</label>
+                        <input type="file" name="profile-picture" id="profile-picture-label">
+
+                        <div class="checkbox-container">
+                            <label>
+                                <input type="checkbox" name="checkbox-01" value="confirm-data" required>
+                                Nyilatkozom, hogy a megadott adatok a valóságnak megfelelnek.
+                            </label>
+                            <label>
+                                <input type="checkbox" name="checkbox-02" value="accept-terms-and-conditions" required>
+                                Elfogadom a <a target="_blank" href="footer/tos.html">felhasználási feltételeket</a>.
+                            </label>
+                            <label>
+                                <input type="checkbox" name="checkbox-03" value="sub-to-newsletter" required>
+                                Feliratkozom a weboldallal kapcsolatos hírlevelekre.
+                            </label>
+                        </div>
+
+                        <input type="reset" name="reset" value="Mezők törlése">
+                        <input type="submit"  name="register" value="Regisztráció">
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </body>
 </html>
