@@ -23,10 +23,15 @@ h2 + p{
     margin-top: 5px;
 }
 
-img{
+.iwiwlogo{
     float: left;
     margin-right: 7px;
     height: 26px;
+}
+
+.altiwiwlogo{
+    height: 36px;
+    margin-bottom: 20px;
 }
 
 .maincontainer{
