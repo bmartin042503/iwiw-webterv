@@ -1,6 +1,10 @@
-ul{
+div ul{
+    list-style-type: disc;
+    padding-left: 32px;
+}
+ul ul{
     list-style-type: circle;
-    padding-left: 42px;
+    padding-left: 24px;
 }
 
 h1{
@@ -23,10 +27,15 @@ h2 + p{
     margin-top: 5px;
 }
 
-img{
+.iwiwlogo{
     float: left;
     margin-right: 7px;
     height: 26px;
+}
+
+.altiwiwlogo{
+    height: 36px;
+    margin-bottom: 20px;
 }
 
 .maincontainer{
@@ -52,4 +61,21 @@ img{
     margin: 20px auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     vertical-align: middle;
+}
+
+#ul-support{
+    list-style-type: disc;
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+.support-q{
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 4px;
+}
+
+.support-a{
+    margin-top: 4px;
+    margin-bottom: 10px;
 }
