@@ -91,7 +91,7 @@ main {
 
 .icon {
     height: 27.5px;
-    transition: filter 0.2s ease-in-out;
+    transition: filter 0.15s ease-in-out;
 }
 
 .icon.menu {
@@ -112,5 +112,5 @@ main {
 
 .icon:hover {
     cursor: pointer;
-    filter: brightness(60%);
+    filter: brightness(80%);
 }
