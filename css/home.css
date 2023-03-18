@@ -116,6 +116,23 @@ main {
 }
 
 .brday-profile {
+    height: 40px;
+    width: 40px;
+}
+
+.post-user-img {
     height: 50px;
     width: 50px;
+}
+
+.post-img {
+    max-height: 200px;
+}
+
+.posts {
+    padding: 15px;
+    margin-left: 20px;
+    background-color: #F5F5F5;
+    overflow: scroll;
+    max-height: 90vh;
 }
