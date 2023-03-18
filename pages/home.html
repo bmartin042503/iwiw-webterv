@@ -6,7 +6,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" type="text/css" href="../css/home.css"/>
         <link rel="icon" type="image/x-icon" href="../img/iwiw-logo-16x16.png"/>
-        <script src="../js/user.js" type="application/javascript"></script>
+        <script src="../js/user.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const brdayItems = document.querySelectorAll(".brday-item");
+
+                for(let i = 0; i < brdayItems.length; i++) {
+                    const img = brdayItems[i].querySelector(".brday-profile");
+                    img.setAttribute("src", users[i].profilkepUrl);
+
+                    const name = brdayItems[i].querySelector(".brday-name");
+                    name.textContent = users[i].nev;
+
+                    /*const date = brdayItems[i].querySelector(".brday-date");
+                    date.textContent = users[i].szulDatum;*/
+
+                    const age = brdayItems[i].querySelector(".brday-age");
+                    const currentYear = new Date().getFullYear();
+                    let ageCalc = currentYear - parseInt(users[i].szulDatum.split('/')[0]);
+                    age.textContent = ageCalc + " éves";
+                }
+            });
+        </script>
     </head>
     <body>
         <header>
@@ -41,29 +62,35 @@
                     <span>Emlékeztető</span>
                     <div class="box birthday">
                         <span>Születésnapok</span>
-                        <div class="brday-item 1">
-                            <img>
-                            <span id="brday-name"></span>
-                            <span id="brday-date"></span>
-                            <span id="brday-value"></span>
+                        <div class="brday-item">
+                            <img class="brday-profile">
+                            <span class="brday-name"></span>
+                            <span class="brday-date">ma</span>
+                            <span class="brday-age"></span>
                         </div>
-                        <div class="brday-item 2">
-                            <img>
-                            <span id="brday-name"></span>
-                            <span id="brday-date"></span>
-                            <span id="brday-value"></span>
+                        <div class="brday-item">
+                            <img class="brday-profile">
+                            <span class="brday-name"></span>
+                            <span class="brday-date">ma</span>
+                            <span class="brday-age"></span>
                         </div>
-                        <div class="brday-item 3">
-                            <img>
-                            <span id="brday-name"></span>
-                            <span id="brday-date"></span>
-                            <span id="brday-value"></span>
+                        <div class="brday-item">
+                            <img class="brday-profile">
+                            <span class="brday-name"></span>
+                            <span class="brday-date">holnap</span>
+                            <span class="brday-age"></span>
                         </div>
-                        <div class="brday-item 4">
-                            <img>
-                            <span id="brday-name"></span>
-                            <span id="brday-date"></span>
-                            <span id="brday-value"></span>
+                        <div class="brday-item">
+                            <img class="brday-profile">
+                            <span class="brday-name"></span>
+                            <span class="brday-date">holnap után</span>
+                            <span class="brday-age"></span>
+                        </div>
+                        <div class="brday-item">
+                            <img class="brday-profile">
+                            <span class="brday-name"></span>
+                            <span class="brday-date">holnap után</span>
+                            <span class="brday-age"></span>
                         </div>
                     </div>
                 </div>

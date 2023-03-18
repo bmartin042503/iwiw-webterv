@@ -114,3 +114,8 @@ main {
     cursor: pointer;
     filter: brightness(80%);
 }
+
+.brday-profile {
+    height: 50px;
+    width: 50px;
+}
