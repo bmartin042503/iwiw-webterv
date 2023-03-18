@@ -41,13 +41,13 @@ main {
 
 
 .side-notifications {
-    max-width: 25%;
+    max-width: 22%;
     padding: 15px;
     background-color: #F5F5F5;
 }
 
 .icon {
-    height: 27.5px;
+    height: 26px;
     transition: filter 0.15s ease-in-out;
 }
 
@@ -98,7 +98,7 @@ main {
 }
 
 .posts {
-    overflow: scroll;
+    overflow-y: scroll;
     max-width: 55%;
     max-height: 90vh;
     margin-top: 15px;
@@ -172,7 +172,7 @@ main {
     width: 100%;
 }
 
-.brday-date {
+.brday-date, .news-title {
     font-weight: bold;
 }
 
@@ -186,4 +186,24 @@ main {
 .brday-label-icon {
     height: 15px;
     width: 15px;
+}
+
+.news-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    margin: 0 10px 0 3px;
+}
+
+.news-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.news-description {
+    margin: 5px 0 0 0;
+    font-size: .7em;
 }
