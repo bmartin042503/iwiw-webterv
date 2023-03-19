@@ -34,6 +34,53 @@
                 var title = img.title;
                 window.location.href = "profile.html?title=" + encodeURIComponent(title);
             }
+
+            let modified = false;
+
+            function handleInteractionLabel() {
+                const screenWidth = window.innerWidth; 
+
+                if(screenWidth < 750 && modified == false) {
+                    const spanElements = document.querySelectorAll('.i-label');
+                    spanElements.forEach(spanElement => {
+                        let spanContent = spanElement.textContent;
+                        
+                        if(spanContent.includes('ember kedveli')) {
+                            spanContent = spanContent.replace('ember kedveli', '');
+                        } else if(spanContent.includes('hozzászólás')) {
+                            spanContent = spanContent.replace('hozzászólás','');
+                        } else if(spanContent.includes('megosztás')) {
+                            spanContent = spanContent.replace('megosztás', '');
+                        }
+                        spanElement.textContent = spanContent;
+                        modified = true;
+                    });
+                } else if(screenWidth > 750 && modified == true) {
+                    const likeSpanElements = document.querySelectorAll('.like-count.i-label');
+                    likeSpanElements.forEach(likeSpan => {
+                        let spanContent = likeSpan.textContent;
+                        likeSpan.textContent = spanContent + ' ember kedveli';
+                    });
+
+                    const commentSpanElements = document.querySelectorAll('.comment-count.i-label');
+                    commentSpanElements.forEach(commentSpan => {
+                        let spanContent = commentSpan.textContent;
+                        commentSpan.textContent = spanContent + ' hozzászólás';
+                    });
+
+                    const shareSpanElements = document.querySelectorAll('.share-count.i-label');
+                    shareSpanElements.forEach(shareSpan => {
+                        let spanContent = shareSpan.textContent;
+                        shareSpan.textContent = spanContent + ' megosztás';
+                    });
+                    modified = false;
+                }
+            }
+            handleInteractionLabel();
+
+            window.addEventListener('resize', () => {
+                handleInteractionLabel();
+            });
         </script>
     </head>
     <body>
@@ -71,14 +118,14 @@
                         <div class="news-item">
                             <img src="../img/static/news/news-img-1.png" class="news-img">
                             <div>
-                                <a href="https://444.hu/2023/03/18/hogyan-lehet-egy-videojatekbol-ennyire-jo-sorozatot-kesziteni" class="news-title">Hogy lehet egy videójátékból ennyire jó sorozatot készíteni?</a>
+                                <a href="https://444.hu/2023/03/18/hogyan-lehet-egy-videojatekbol-ennyire-jo-sorozatot-kesziteni" target="_blank" class="news-title">Hogy lehet egy videójátékból ennyire jó sorozatot készíteni?</a>
                                 <p class="news-description">Véget ért a Last of Us első évada. Ez lett a valaha készült egyik legjobb videójáték-adaptáció, amit epizódról epizódra egyre többen néztek...</p>
                             </div>
                         </div>
                         <div class="news-item">
                             <img src="../img/static/news/news-img-2.png" class="news-img">
                             <div>
-                                <a href="https://444.hu/2023/03/18/joe-biden-szerint-megalapozott-a-putyin-elleni-elfogatoparancs" class="news-title">Joe Biden szerint megalapozott a Putyin elleni elfogatóparancs</a>
+                                <a href="https://444.hu/2023/03/18/joe-biden-szerint-megalapozott-a-putyin-elleni-elfogatoparancs" target="_blank" class="news-title">Joe Biden szerint megalapozott a Putyin elleni elfogatóparancs</a>
                                 <p class="news-description">Ugyan az Egyesült Államok nem ismeri el a hágai Nemzetközi Büntetőbíróságot.</p>
                             </div>
                         </div>
@@ -156,15 +203,15 @@
                     <div class="post-interactions">
                         <div class="interaction">
                             <img class="like-button" src="../img/icons/like-icon.png">
-                            <span class="like-count-label">26 ember kedveli</span>
+                            <span class="like-count i-label">26 ember kedveli</span>
                         </div>
                         <div class="interaction">
                             <img class="comment-button" src="../img/icons/comment-icon.png">
-                            <span class="like-count-label">14 hozzászólás</span>
+                            <span class="comment-count i-label">14 hozzászólás</span>
                         </div>
                         <div class="interaction">
                             <img class="share-button" src="../img/icons/share-icon.png">
-                            <span class="share-count-label">2 megosztás</span>
+                            <span class="share-count i-label">2 megosztás</span>
                         </div>
                     </div>
                     <hr id="post-bottom-separator">
@@ -198,15 +245,15 @@
                     <div class="post-interactions">
                         <div class="interaction">
                             <img class="like-button" src="../img/icons/like-icon.png">
-                            <span class="like-count-label">49 ember kedveli</span>
+                            <span class="like-count i-label">49 ember kedveli</span>
                         </div>
                         <div class="interaction">
                             <img class="comment-button" src="../img/icons/comment-icon.png">
-                            <span class="like-count-label">5 hozzászólás</span>
+                            <span class="comment-count i-label">5 hozzászólás</span>
                         </div>
                         <div class="interaction">
                             <img class="share-button" src="../img/icons/share-icon.png">
-                            <span class="share-count-label">1 megosztás</span>
+                            <span class="share-count i-label">1 megosztás</span>
                         </div>
                     </div>
                     <hr id="post-bottom-separator">
@@ -239,15 +286,15 @@
                     <div class="post-interactions">
                         <div class="interaction">
                             <img class="like-button" src="../img/icons/like-icon.png">
-                            <span class="like-count-label">2 ember kedveli</span>
+                            <span class="like-count i-label">2 ember kedveli</span>
                         </div>
                         <div class="interaction">
                             <img class="comment-button" src="../img/icons/comment-icon.png">
-                            <span class="like-count-label">0 hozzászólás</span>
+                            <span class="comment-count i-label">0 hozzászólás</span>
                         </div>
                         <div class="interaction">
                             <img class="share-button" src="../img/icons/share-icon.png">
-                            <span class="share-count-label">0 megosztás</span>
+                            <span class="share-count i-label">0 megosztás</span>
                         </div>
                     </div>
                 </div>
@@ -267,15 +314,15 @@
                     <div class="post-interactions">
                         <div class="interaction">
                             <img class="like-button" src="../img/icons/like-icon.png">
-                            <span class="like-count-label">591 ember kedveli</span>
+                            <span class="like-count i-label">591 ember kedveli</span>
                         </div>
                         <div class="interaction">
                             <img class="comment-button" src="../img/icons/comment-icon.png">
-                            <span class="like-count-label">126 hozzászólás</span>
+                            <span class="comment-count i-label">126 hozzászólás</span>
                         </div>
                         <div class="interaction">
                             <img class="share-button" src="../img/icons/share-icon.png">
-                            <span class="share-count-label">9 megosztás</span>
+                            <span class="share-count i-label">9 megosztás</span>
                         </div>
                     </div>
                     <hr id="post-bottom-separator">
@@ -319,15 +366,15 @@
                     <div class="post-interactions">
                         <div class="interaction">
                             <img class="like-button" src="../img/icons/like-icon.png">
-                            <span class="like-count-label">29 ember kedveli</span>
+                            <span class="like-count i-label">29 ember kedveli</span>
                         </div>
                         <div class="interaction">
                             <img class="comment-button" src="../img/icons/comment-icon.png">
-                            <span class="like-count-label">0 hozzászólás</span>
+                            <span class="comment-count i-label">0 hozzászólás</span>
                         </div>
                         <div class="interaction">
                             <img class="share-button" src="../img/icons/share-icon.png">
-                            <span class="share-count-label">1 megosztás</span>
+                            <span class="share-count i-label">1 megosztás</span>
                         </div>
                     </div>
                 </div>
