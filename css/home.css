@@ -86,6 +86,10 @@ main {
     color: black;
 }
 
+.post-user-name:hover, .comment-user-name:hover, .post-comments-expand:hover, .brday-name:hover {
+    text-decoration: underline;
+}
+
 .post {
     color: black;
 }
@@ -289,6 +293,6 @@ main {
         display: none;
     }
 }
-.posts .post-user-img,.posts .post-user-name,.comment-user-img,.comment-user-name{
+.posts .post-user-img,.posts .post-user-name,.comment-user-img,.comment-user-name,.brday-name,.brday-profile{
     cursor: pointer;
 }

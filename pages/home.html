@@ -31,8 +31,11 @@
                 handleInteractionLabel();
             });
 
-            function redirect(img) {
-                var title = img.title;
+            function redirect(obj) {
+                var title = obj.title;
+                if(obj.title == "") {
+                    title = obj.textContent;
+                }
                 window.location.href = "profile.html?title=" + encodeURIComponent(title);
             }
 
@@ -136,7 +139,7 @@
                         <div class="brday-item">
                             <img class="brday-profile">
                             <div>
-                                <span class="brday-name"></span>
+                                <span class="brday-name" onclick="redirect(this)"></span>
                                 <span class="brday-date">ma</span>
                                 <span class="brday-age"></span>
                             </div>
@@ -144,7 +147,7 @@
                         <div class="brday-item">
                             <img class="brday-profile">
                             <div>
-                                <span class="brday-name"></span>
+                                <span class="brday-name" onclick="redirect(this)"></span>
                                 <span class="brday-date">ma</span>
                                 <span class="brday-age"></span>
                             </div>
@@ -152,7 +155,7 @@
                         <div class="brday-item">
                             <img class="brday-profile">
                             <div>
-                                <span class="brday-name"></span>
+                                <span class="brday-name" onclick="redirect(this)"></span>
                                 <span class="brday-date">holnap</span>
                                 <span class="brday-age"></span>
                             </div>
@@ -160,7 +163,7 @@
                         <div class="brday-item">
                             <img class="brday-profile">
                             <div>
-                                <span class="brday-name"></span>
+                                <span class="brday-name" onclick="redirect(this)"></span>
                                 <span class="brday-date">holnap után</span>
                                 <span class="brday-age"></span>
                             </div>
