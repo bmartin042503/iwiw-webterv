@@ -46,8 +46,6 @@ input[type="reset"]:hover {
     background-color: #fc2a2a;
 }
 
-
-
 h1{
     font-size: 2.4em;
 }
@@ -65,17 +63,18 @@ h1{
     height: 40px;
 }
 
-.title{
-    margin-bottom: 30px;
+.title {
+    margin-bottom: 10px;
 }
 
 .checkbox-container{
     margin-top: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 19px;
 }
 
 .checkbox-container label{
-    display: block;
+    display: inline-block;
+    margin-bottom: 12px;
 }
 
 .radio-button-container{
