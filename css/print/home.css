@@ -1,0 +1,24 @@
+@media print {
+    .side-notifications,.ad-container,header {
+        display: none;
+    }
+    main{
+        position: inherit;
+    }
+    .posts{
+        max-width: 100%;
+        max-height: inherit;
+        margin: inherit;
+        overflow-y: inherit;
+    }
+    body{
+        background: white;
+    }
+
+    .post:not(:last-child) {
+        page-break-after: always;
+    }
+    .post-comments-expand{
+        display: none;
+    }
+}

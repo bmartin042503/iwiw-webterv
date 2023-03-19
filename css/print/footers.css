@@ -1,0 +1,42 @@
+@media print {
+    .pagebreak { page-break-before: always; }
+    a{
+        color:black;
+
+    }
+    a:link {
+        text-decoration: none;
+    }
+
+    a:visited {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a:active {
+        text-decoration: none;
+    }
+    body{
+        background: white;
+    }
+    .maincontainer,.text {
+        position: inherit;
+        transform: none;
+        width: auto;
+        border-radius: 0;
+        box-shadow: none;
+        padding: inherit;
+    }
+
+    h2{
+        margin-top: 14px;
+        margin-bottom: 4px;
+    }
+    p{
+        margin-top: 12px;
+        margin-bottom: 7px;
+    }
+}

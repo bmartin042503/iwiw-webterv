@@ -1,0 +1,19 @@
+@media print {
+    form > input:not([type="file"]),
+    form > select,
+    form > textarea {
+        padding: 10px;
+        display: block;
+        margin: 10px auto 26px;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        width: 60%;
+        font-size: 1em;
+        border: 1.5px solid rgb(225, 225, 225);
+    }
+
+    form>input[type="submit"] ,form>input[type="reset"]{
+        display: none;
+    }
+}

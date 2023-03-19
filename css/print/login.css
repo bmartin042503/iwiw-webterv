@@ -1,0 +1,9 @@
+@media print {
+    footer{
+        display: none;
+    }
+    .main{
+        top: 0%;
+        transform: translate(-50%,0);
+    }
+}
