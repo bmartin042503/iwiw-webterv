@@ -7,9 +7,14 @@
         <link rel="stylesheet" type="text/css" href="../css/profile.css"/>
         <link rel="stylesheet" type="text/css" href="../css/header.css"/>
         <link rel="icon" type="image/x-icon" href="../img/iwiw-logo-16x16.png"/>
+        <script src="../js/user.js"></script>
         <script>
             var title = decodeURIComponent(window.location.search.replace(/^.*?\=/,''));
             document.title = title + " | iWiW";
+
+            document.addEventListener('DOMContentLoaded', () => {
+                
+            });
         </script>
     </head>
     <body>
@@ -39,5 +44,8 @@
                 </ul>
             </nav>
         </header>
+        <main>
+            <img class="user-img">
+        </main>
     </body>
 </html>
