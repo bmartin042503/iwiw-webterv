@@ -12,10 +12,6 @@ body {
     background-color: #e1e4eb;
 }
 
-hr {
-    
-}
-
 main {
     position: fixed;
     top: 65px;
@@ -24,57 +20,12 @@ main {
     flex-direction: row;
 }
 
-.search-container {
-    position: relative;
-    padding-left: 15px;
-}
-
-.search-container input {
-    padding: 10px 10px 10px 40px;
-    border-radius: 20px;
-    border: none;
-}
-
-.search-container img {
-    position: absolute;
-    top: 8px;
-    left: 26.5px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
 
 .side-notifications {
     max-width: 22%;
     padding: 15px;
     background-color: #e1e4eb;
-}
-
-.icon {
-    height: 26px;
-    transition: filter 0.15s ease-in-out;
-}
-
-.icon.menu {
-    padding-right: 60px;
-}
-
-.icon.profile {
-    padding-right: 10px;
-}
-
-.icon.profile.pic {
-    height: 35px;
-    width: 35px;
-    border-radius: 5px;
-    padding-right: 0px;
-    margin-right: 10px;
-}
-
-.icon:hover {
-    cursor: pointer;
-    filter: brightness(80%);
+    overflow-y: scroll;
 }
 
 .brday-profile {
@@ -212,6 +163,7 @@ main {
 .birthday-container {
     padding: 5px;
     font-size: .8em;
+    margin-bottom: 15px;
 }
 
 .brday-item {
@@ -247,6 +199,10 @@ main {
 .brday-label-icon {
     height: 15px;
     width: 15px;
+}
+
+.news-container {
+    margin-bottom: 30px;
 }
 
 .news-img {
