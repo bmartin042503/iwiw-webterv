@@ -29,6 +29,11 @@
                     age.textContent = ageCalc + " éves";
                 }
             });
+
+            function redirect(img) {
+                var title = img.title;
+                window.location.href = "profile.html?title=" + encodeURIComponent(title);
+            }
         </script>
     </head>
     <body>
@@ -118,18 +123,18 @@
                     <div class="friends-container">
                         <table class="friends-table">
                             <tr>
-                                <td><img src="../img/static/users/user-1.png" alt="profilkép" title="Nagy Béla"></td>
-                                <td><img src="../img/static/users/user-2.png" alt="profilkép" title="Szabó Peti"></td>
-                                <td><img src="../img/static/default-profile.png" alt="profilkép" title="Balázs Judit"></td>
-                                <td><img src="../img/static/users/user-4.png" alt="profilkép" title="Arató András"></td>
-                                <td><img src="../img/static/users/user-9.png" alt="profilkép" title="Kovács József"></td>
+                                <td><img src="../img/static/users/user-1.png" alt="profilkép" title="Nagy Béla" onclick="redirect(this)"></td>
+                                <td><img src="../img/static/users/user-2.png" alt="profilkép" title="Szabó Peti" onclick="redirect(this)"></td>
+                                <td><img src="../img/static/default-profile.png" alt="profilkép" title="Balázs Judit" onclick="redirect(this)"></td>
+                                <td><img src="../img/static/users/user-4.png" alt="profilkép" title="Arató András" onclick="redirect(this)"></td>
+                                <td><img src="../img/static/users/user-9.png" alt="profilkép" title="Kovács József" onclick="redirect(this)"></td>
                             </tr>
                             <tr>
-                                <td><img src="../img/static/users/user-5.png" alt="profilkép" title="Kovács Gábor"></td>
-                                <td><img src="../img/static/users/user-6.png" alt="profilkép" title="Kertész Kolompár"></td>
-                                <td><img src="../img/static/default-profile.png" alt="profilkép" title="Kovács Anna"></td>
-                                <td><img src="../img/static/default-profile.png" alt="profilkép" title="Varga Boglárka"></td>
-                                <td><img src="../img/static/users/user-10.png" alt="profilkép" title="Juhász Erzsébet"></td>
+                                <td><img src="../img/static/users/user-5.png" alt="profilkép" title="Kovács Gábor" onclick="redirect(this)"></td>
+                                <td><img src="../img/static/users/user-6.png" alt="profilkép" title="Kertész Kolompár" onclick="redirect(this)"></td>
+                                <td><img src="../img/static/default-profile.png" alt="profilkép" title="Kovács Anna" onclick="redirect(this)"></td>
+                                <td><img src="../img/static/default-profile.png" alt="profilkép" title="Varga Boglárka" onclick="redirect(this)"></td>
+                                <td><img src="../img/static/users/user-10.png" alt="profilkép" title="Juhász Erzsébet" onclick="redirect(this)"></td>
                             </tr>
                         </table>
                     </div>
