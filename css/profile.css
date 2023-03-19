@@ -2,9 +2,6 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-}
 
 body {
     margin: 0;
@@ -13,6 +10,116 @@ body {
 }
 
 main {
-    margin-top: 70px;
+    margin: 90px 20px 20px 20px;
     padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+}
+
+.iwiw-logo {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 70px;
+    margin: 20px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+#profile-separator {
+    margin: 20px 0;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    padding: 10px;
+}
+
+.profile-details span:not(.user-fullname) {
+    margin-bottom: 8px;
+}
+
+.user-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 10px;
+}
+
+.user-fullname {
+    font-size: 2.25em;
+    font-weight: bold;
+}
+
+.user-introduction {
+    width: 75%;
+}
+
+.other-information-label {
+    font-size: 1.5em;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.other-information {
+    display: flex;
+    flex-direction: column;
+}
+
+.other-information span {
+    margin-bottom: 8px;
+}
+
+.iwiw-plus-logo {
+    width: 23px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.iwiw-plus-label {
+    display: inline-block;
+    cursor: pointer;
+    color: #f4bd19;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+button {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.message-button {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: #f75d5d;
+}
+
+.message-button:hover {
+    background-color: #fc2a2a;
+}
+
+.add-button {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: #051865;
+}
+
+.add-button:hover {
+    background-color: #041147;
 }

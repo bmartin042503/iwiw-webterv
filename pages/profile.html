@@ -28,7 +28,7 @@
                 profileImg.setAttribute("src", selectedUser.profilkepUrl);
 
                 const introParagraph = document.querySelector(".user-introduction");
-                introParagraph.textContent = introParagraph.textContent + " " + selectedUser.bemutatkozas;
+                introParagraph.textContent = selectedUser.bemutatkozas;
 
                 const birthDateSpan = document.querySelector(".user-birthdate");
                 let splittedDate = selectedUser.szulDatum.split('/');
@@ -55,18 +55,29 @@
                 let text_h;
                 if(selectedUser.magassag == -1) text_h = " Nem adta meg";
                 else text_h = " " + selectedUser.magassag;
-                heightSpan.textContent = heightSpan.textContent + text_h;
+                heightSpan.textContent = heightSpan.textContent + text_h + " cm";
 
                 const weightSpan = document.querySelector(".user-weight");
                 let text_w;
-                if(selectedUser.magassag == -1) text_w = " Nem adta meg";
-                else text_w = " " + selectedUser.magassag;
-                weightSpan.textContent = weightSpan.textContent + text_w;
+                if(selectedUser.suly == -1) text_w = " Nem adta meg";
+                else text_w = " " + selectedUser.suly;
+                weightSpan.textContent = weightSpan.textContent + text_w + " kg";
 
                 const plusSpan = document.querySelector(".user-plus");
                 let text_p;
-                if(selectedUser.iwiwplus == true) text_p = "Igen";
-                else text_p = "Nem";
+                if(selectedUser.iwiwplus == true) {
+                    text_p = "Igen";
+                    const iwiwPlusLogo = document.querySelector(".iwiw-plus-logo");
+                    iwiwPlusLogo.style.display = "inline-block";
+                    const iwiwPlusLogoLabel = document.querySelector(".iwiw-plus-label");
+                    iwiwPlusLogoLabel.style.display = "inline-block";
+                } else {
+                    text_p = "Nem";
+                    const iwiwPlusLogo = document.querySelector(".iwiw-plus-logo");
+                    iwiwPlusLogo.style.display = "none";
+                    const iwiwPlusLogoLabel = document.querySelector(".iwiw-plus-label");
+                    iwiwPlusLogoLabel.style.display = "none";
+                }
                 plusSpan.textContent = plusSpan.textContent + " " + text_p;
             });
         </script>
@@ -99,18 +110,35 @@
             </nav>
         </header>
         <main>
-            <img src="../img/static/default-profile.png" class="user-img" alt="profilkép">
-            <span class="user-fullname">Vezetéknév Keresztnév</span>
-            <p class="user-introduction">Bemutatkozás:</p>
-            <span class="user-birthdate">Születési idő:</span>
-            <span class="user-registered">Regisztráció ideje:</span>
-            <span class="user-location">Lakhely</span>
-            <span class="user-workplace">Munkahely:</span>
-            <span class="user-email">E-mail cím:</span>
+            <div>
+                <a href="home.html"><img src="../img/iwiw-logo.png" class="iwiw-logo" alt="iwiw logó"></a>
+            </div>
+            <div class="profile-info">
+                <img src="../img/static/default-profile.png" class="user-img" alt="profilkép">
+                <div class="profile-details">
+                    <div>
+                        <span class="user-fullname">Vezetéknév Keresztnév</span>
+                        <img src="../img/iwiw-plus-logo.png" class="iwiw-plus-logo">
+                        <span class="iwiw-plus-label">tag</span>
+                    </div>
+                    <p class="user-introduction">Bemutatkozás</p>
+                    <span class="user-birthdate">Születési idő:</span>
+                </div>
+            </div>
+            <button type="submit" class="add-button">Jelölés</button>
+            <button type="submit" class="message-button">Üzenet küldése</button>
+            <hr id="profile-separator">
+            <span class="other-information-label">Egyéb információ</span>
+            <div class="other-information">
+                <span class="user-location">Lakhely: </span>
+                <span class="user-workplace">Munkahely:</span>
+                <span class="user-email">E-mail cím:</span>
+                <span class="user-registered">Regisztráció ideje:</span>
+                <span class="user-height">Magasság:</span>
+                <span class="user-weight">Súly:</span>
+                <span class="user-plus">iWiW Plus:</span>
+            </div>
             <span class="user-friends">Ismerősök (-)</span>
-            <span class="user-height">Magasság:</span>
-            <span class="user-weight">Súly:</span>
-            <span class="user-plus">iWiW Plus:</span>
         </main>
     </body>
 </html>
