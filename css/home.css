@@ -11,6 +11,10 @@ body {
     font-family: 'Roboto', 'Arial';
 }
 
+hr {
+    
+}
+
 main {
     position: fixed;
     top: 65px;
@@ -43,7 +47,7 @@ main {
 .side-notifications {
     max-width: 22%;
     padding: 15px;
-    background-color: #F5F5F5;
+    background-color: #dbdbdb;
 }
 
 .icon {
@@ -80,17 +84,19 @@ main {
 .post-user-img {
     height: 50px;
     width: 50px;
+    border-radius: 10px;
 }
 
 .post-img {
-    max-height: 200px;
+    height: 50%;
+    width: 100%;
 }
 
 .post {
     padding: 15px;
     margin: 0 15px 20px 15px;
-    background-color: #F5F5F5;
     border-radius: 15px;
+    background-color: #dbdbdb;
 }
 
 .post-img {
@@ -101,32 +107,23 @@ main {
     overflow-y: scroll;
     max-width: 55%;
     max-height: 90vh;
-    margin-top: 15px;
+    margin: 15px 60px 0px 5px;
 }
 
-.post-user-name {
+.post-date, .comment-date, .post-user-name, .comment-user-name {
     display: inline-block;
     width: 100%;
 }
 
-.post-date {
-    display: inline-block;
-    width: 100%;
-}
-
-.post-details {
+.post-details, .comment-details {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
 }
 
-.post-details-info {
+.post-details-info, .comment-details-info {
     margin-left: 10px;
-}
-
-.post-user-img {
-    border-radius: 10px;
 }
 
 .post a {
@@ -135,6 +132,34 @@ main {
 
 .post {
     color: black;
+}
+
+.post-interactions {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.post-top-separator {
+    margin-top: 15px;
+}
+
+.comment {
+    margin-top: 20px;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.comment-description {
+    margin: 15px 0 0 0;
+}
+
+.comment-user-img {
+    border-radius: 10px;
+    height: 40px;
+    width: 40px;
 }
 
 .label-container {
@@ -211,4 +236,5 @@ main {
 .ad-img {
     height: 300px;
     width: 360px;
+    cursor: pointer;
 }
