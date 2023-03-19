@@ -234,7 +234,7 @@ main {
 }
 
 .ad-container{
-    width: 400px;
+    width: 370px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -259,6 +259,11 @@ main {
     }
     .posts{
         max-width: 100%;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .posts::-webkit-scrollbar {
+        display: none;
     }
 }
 
