@@ -180,7 +180,7 @@ const users = [
         -1,
         "NYUGDIJAS VAGYOK MINDENKINEK SZEP NAPOT IWIW PUSZI ERZSI",
         "2021. 10. 04.",
-        false,
+        false
         )
 ];
 

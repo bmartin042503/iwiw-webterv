@@ -11,3 +11,8 @@ body {
     font-family: 'Roboto', 'Arial';
     background-color: #e1e4eb;
 }
+
+main {
+    margin-top: 70px;
+    padding: 20px;
+}
