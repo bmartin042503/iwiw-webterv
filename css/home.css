@@ -22,7 +22,6 @@ main {
 
 
 .side-notifications {
-    max-width: 22%;
     padding: 15px;
     background-color: #e1e4eb;
     overflow-y: scroll;
@@ -266,14 +265,15 @@ main {
         display: none;
     }
     .side-notifications{
-
+        min-width: 350px;
+        max-width: 400px;
     }
     .posts{
         max-width: 100%;
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 920px) {
     .ad-container{
         display: none;
     }
