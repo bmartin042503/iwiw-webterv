@@ -107,7 +107,7 @@ main {
     overflow-y: scroll;
     max-width: 55%;
     max-height: 90vh;
-    margin: 15px 60px 0px 5px;
+    margin: 15px 5px 0px 5px;
 }
 
 .post-date, .comment-date, .post-user-name, .comment-user-name {
@@ -237,4 +237,34 @@ main {
     height: 300px;
     width: 360px;
     cursor: pointer;
+    margin: 0px 10px 0px 0px;
+}
+
+.ad-container{
+    width: 400px;
+}
+
+@media screen and (max-width: 1200px) {
+    .ad-container{
+        display: none;
+    }
+    .side-notifications{
+        max-width: 34%;
+        min-width: 270px;
+    }
+    .posts{
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .ad-container{
+        display: none;
+    }
+    .side-notifications{
+        display: none;
+    }
+    .posts{
+        max-width: 100%;
+    }
 }
