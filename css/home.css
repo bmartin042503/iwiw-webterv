@@ -289,3 +289,6 @@ main {
         display: none;
     }
 }
+.posts .post-user-img,.posts .post-user-name,.comment-user-img,.comment-user-name{
+    cursor: pointer;
+}
