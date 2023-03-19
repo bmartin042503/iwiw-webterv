@@ -9,10 +9,7 @@ html, body {
 body {
     margin: 0;
     font-family: 'Roboto', 'Arial';
-}
-
-hr {
-    
+    background-color: #e1e4eb;
 }
 
 main {
@@ -23,57 +20,12 @@ main {
     flex-direction: row;
 }
 
-.search-container {
-    position: relative;
-    padding-left: 15px;
-}
-
-.search-container input {
-    padding: 10px 10px 10px 40px;
-    border-radius: 20px;
-    border: none;
-}
-
-.search-container img {
-    position: absolute;
-    top: 8px;
-    left: 26.5px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
 
 .side-notifications {
     max-width: 22%;
     padding: 15px;
-    background-color: #dbdbdb;
-}
-
-.icon {
-    height: 26px;
-    transition: filter 0.15s ease-in-out;
-}
-
-.icon.menu {
-    padding-right: 60px;
-}
-
-.icon.profile {
-    padding-right: 10px;
-}
-
-.icon.profile.pic {
-    height: 35px;
-    width: 35px;
-    border-radius: 5px;
-    padding-right: 0px;
-    margin-right: 10px;
-}
-
-.icon:hover {
-    cursor: pointer;
-    filter: brightness(80%);
+    background-color: #e1e4eb;
+    overflow-y: scroll;
 }
 
 .brday-profile {
@@ -96,7 +48,7 @@ main {
     padding: 15px;
     margin: 0 15px 20px 15px;
     border-radius: 15px;
-    background-color: #dbdbdb;
+    background-color: white;
 }
 
 .post-img {
@@ -128,6 +80,8 @@ main {
 
 .post a {
     text-decoration: none;
+    font-weight: bold;
+    color: black;
 }
 
 .post {
@@ -135,19 +89,45 @@ main {
 }
 
 .post-interactions {
-    margin: 15px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.interaction {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.interaction span {
+    margin-left: 8px;
+}
+
+.like-button {
+    margin-bottom: 5px;
 }
 
 .post-top-separator {
     margin-top: 15px;
 }
 
+.post-bottom-separator {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.like-button, .comment-button, .share-button {
+    height: 25px;
+    width: 25px;
+}
+
 .comment {
-    margin-top: 20px;
+    margin-top: 15px;
     background-color: #F5F5F5;
+    border: 2px solid #e6e6e6;
     border-radius: 10px;
     padding: 10px;
 }
@@ -160,6 +140,13 @@ main {
     border-radius: 10px;
     height: 40px;
     width: 40px;
+}
+
+.post-comments-expand {
+    margin-top: 13px;
+    display: inline-block;
+    cursor: pointer;
+    color: #051865;
 }
 
 .label-container {
@@ -176,6 +163,7 @@ main {
 .birthday-container {
     padding: 5px;
     font-size: .8em;
+    margin-bottom: 15px;
 }
 
 .brday-item {
@@ -211,6 +199,10 @@ main {
 .brday-label-icon {
     height: 15px;
     width: 15px;
+}
+
+.news-container {
+    margin-bottom: 30px;
 }
 
 .news-img {
