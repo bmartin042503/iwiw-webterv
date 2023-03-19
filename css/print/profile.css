@@ -1,0 +1,12 @@
+@media print {
+    header,.iwiw-logo,button {
+        display: none;
+    }
+    main{
+        margin: inherit;
+        padding: inherit;
+    }
+    body{
+        background: white;
+    }
+}
