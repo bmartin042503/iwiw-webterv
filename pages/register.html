@@ -17,8 +17,8 @@
                     <h1>regisztráció</h1>
 
                     <form action="#" method="post" autocomplete="off" enctype="multipart/form-data">
-                        <label for="username-label">Név:</label>
-                        <input type="text" name="username" id="username-label" placeholder="" required>
+                        <label for="name-label">Név:</label>
+                        <input type="text" name="name" id="name-label" placeholder="" required>
 
                         <label for="email-label">E-mail cím:</label>
                         <input type="email" name="email" id="email-label" placeholder="pelda@citromail.hu" required>
@@ -36,11 +36,25 @@
                             <span class="pseudo-label">Nem:</span>
                             <label><input type="radio" name="gender" value="male" required> Férfi</label>
                             <label><input type="radio" name="gender" value="female"> Nő</label>
-                            <label><input type="radio" name="gender" value="other"> Egyéb</label>
                         </div>
 
                         <label for="introduction-label">Bemutatkozás (opcionális, max. 600 karakter): </label>
                         <textarea name="introduction" id="introduction-label" maxlength="600" rows="7"></textarea>
+
+                        <label for="residence-label">Lakhely (opcionális)</label>
+                        <input type="text" name="residence" id="residence-label" placeholder="">
+
+                        <label for="workplace-label">Munkahely (opcionális)</label>
+                        <input type="text" name="workplace" id="workplace-label" placeholder="">
+
+                        <label for="studies-label">Tanulmányok (opcionális)</label>
+                        <input type="text" name="studies" id="studies-label" placeholder="">
+
+                        <label for="height-label">Magasság (opcionális)</label>
+                        <input type="number" name="height" id="height-label" placeholder="160 (cm)" min="1" max="300">
+
+                        <label for="weight-label">Súly (opcionális)</label>
+                        <input type="number" name="weight" id="weight-label" placeholder="60 (kg)"  min="1" max="300">
 
                         <label for="profile-picture-label">Profilkép: (opcionális)</label>
                         <input type="file" name="profile-picture" id="profile-picture-label">
@@ -53,10 +67,6 @@
                             <label>
                                 <input type="checkbox" name="checkbox-02" value="accept-terms-and-conditions" required>
                                 Elfogadom a <a target="_blank" href="footer/tos.html">felhasználási feltételeket</a>.
-                            </label>
-                            <label>
-                                <input type="checkbox" name="checkbox-03" value="sub-to-newsletter" required>
-                                Feliratkozom a weboldallal kapcsolatos hírlevelekre.
                             </label>
                         </div>
 
