@@ -28,6 +28,7 @@
                     let ageCalc = currentYear - parseInt(users[i].szulDatum.split('/')[0]);
                     age.textContent = ageCalc + " éves";
                 }
+                handleInteractionLabel();
             });
 
             function redirect(img) {
@@ -76,7 +77,6 @@
                     modified = false;
                 }
             }
-            handleInteractionLabel();
 
             window.addEventListener('resize', () => {
                 handleInteractionLabel();
