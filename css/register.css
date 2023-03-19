@@ -1,10 +1,9 @@
 form > input:not([type="file"]),
 form > select,
 form > textarea {
-    margin: 10px auto;
     padding: 10px;
     display: block;
-    margin: 10px auto 13px;
+    margin: 10px auto 26px;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 8px;
