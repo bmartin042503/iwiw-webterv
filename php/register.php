@@ -1,4 +1,5 @@
 <?php
+session_start();
 function generate_unique_id() {
     return uniqid('', true);
 }
@@ -88,7 +89,9 @@ if(isset($_POST['register'])) {
             exit;
         }
     }
-    echo "<script>alert('Sikeres regisztráció!'); window.location.href = '../pages/home.html';</script>";
+    $_SESSION['user_data'] = $user_data;
+    echo "<script>alert('Sikeres regisztráció!');</script>";
+    header('Location: ../php/home.php');
 }
 
 ?>
