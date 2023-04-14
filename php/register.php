@@ -18,10 +18,6 @@ function validate_form_data() {
         return 'A jelszónak legalább 8 karakterből kell állnia, tartalmaznia kell egy nagybetűt és egy számot.';
     }
 
-    if(!isset($_POST['checkbox-01']) || !isset($_POST['checkbox-02'])) {
-        return 'A sikeres regisztrációhoz el kell fogadnod a felhasználási feltételeket, valamint igazolnod kell, hogy a megadott adatok megfelelnek a valóságnak!';
-    }
-
     return null;
 }
 
@@ -34,7 +30,7 @@ function email_exists($email) {
 
     $users_directory = new DirectoryIterator($users_dir);
     foreach($users_directory as $user_directory) {
-        if(!$user_directory->isDot() && $user_directory->isDir()) {
+        if($user_directory->isDir()) {
             $data_file = $user_directory->getPathname() . '/data.txt';
             if(file_exists($data_file)) {
                 $user_data = unserialize(file_get_contents($data_file));
@@ -50,12 +46,12 @@ function email_exists($email) {
 if(isset($_POST['register'])) {
     $error_message = validate_form_data();
     if($error_message) {
-        echo "<script>alert('$error_message');</script>";
+        echo "<script>alert('$error_message'); window.location.href = '../pages/register.html';</script>";
         exit;
     }
 
     if(email_exists($_POST['email'])) {
-        echo "<script>alert('Az e-mail cím már regisztrálva van!');</script>";
+        echo "<script>alert('Az e-mail cím már regisztrálva van!'); window.location.href = '../pages/register.html';</script>";
         exit;
     }
 
@@ -87,7 +83,7 @@ if(isset($_POST['register'])) {
             $profile_picture_path = $user_dir_path . '/profile' . '.' . $file_ext;
             move_uploaded_file($_FILES['profile-picture']['tmp_name'], $profile_picture_path);
         } else {
-            echo "<script>alert('Nem megfelelő formátumú a képfájl. Csak JPG, JPEG, PNG és GIF fájlok engedélyezettek.'); window.location.href = '../index.html';</script>";
+            echo "<script>alert('Nem megfelelő formátumú a képfájl. Csak JPG, JPEG, PNG és GIF fájlok engedélyezettek.'); window.location.href = '../pages/register.html';</script>";
             exit;
         }
     }

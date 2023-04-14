@@ -15,10 +15,10 @@
                 <img src="img/iwiw-logo.png" alt="iWiW logó"/>
             </div>
             <div class="login">
-                <form method="POST">
-                    <input type="email" class="loginput email" name="u_email" placeholder="E-mail cím" required/>
-                    <input type="password" class="loginput password" name="u_password" placeholder="Jelszó" required/>
-                    <input type="submit" name="login_submit" onclick="window.location.href = 'pages/home.html'" value="Bejelentkezés"/> 
+                <form action="php/login.php" method="POST">
+                    <input type="email" class="loginput email" name="email" placeholder="E-mail cím" required/>
+                    <input type="password" class="loginput password" name="password" placeholder="Jelszó" required/>
+                    <input type="submit" name="login_submit" value="Bejelentkezés"/> 
                     <div class="logunder">
                         <div>
                             <input type="checkbox" id="remember-cbox" name="remember"/>
