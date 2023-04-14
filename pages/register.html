@@ -18,9 +18,9 @@
                     <a href="../index.html"><img src="../img/iwiw-logo.png" alt="iWiW" class="iwiwlogo"/></a>
                     <h1>regisztráció</h1>
 
-                    <form action="#" method="post" autocomplete="off" enctype="multipart/form-data">
+                    <form action="../php/register.php" method="post" autocomplete="off" enctype="multipart/form-data">
                         <label for="name-label">Név:</label>
-                        <input type="text" name="name" id="name-label" placeholder="Vezetéknév Keresztnév" required>
+                        <input type="text" name="username" id="name-label" placeholder="Vezetéknév Keresztnév" required>
 
                         <label for="email-label">E-mail cím:</label>
                         <input type="email" name="email" id="email-label" placeholder="pelda@citromail.hu" required>
@@ -29,7 +29,7 @@
                         <input type="password" name="password" id="password-label" required>
 
                         <label for="password-check-label">Jelszó ismét:</label>
-                        <input type="password" name="password-check" id="password-check-label" required>
+                        <input type="password" name="confirm_password" id="password-check-label" required>
 
                         <label for="year-of-birth-label">Születési év:</label>
                         <input type="date" name="year-of-birth" id="year-of-birth-label" min="1900-01-01" max="2023-03-19" required>
