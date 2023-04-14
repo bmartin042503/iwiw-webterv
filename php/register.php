@@ -55,7 +55,7 @@ if(isset($_POST['register'])) {
     }
 
     if(email_exists($_POST['email'])) {
-        echo "<script>alert('Az e-mail cím már regisztrálva van.');</script>";
+        echo "<script>alert('Az e-mail cím már regisztrálva van!');</script>";
         exit;
     }
 
@@ -91,7 +91,7 @@ if(isset($_POST['register'])) {
             exit;
         }
     }
-    echo "<script>alert('Sikeres regisztráció!'); window.location.href = '../home.html';</script>";
+    echo "<script>alert('Sikeres regisztráció!'); window.location.href = '../pages/home.html';</script>";
 }
 
 ?>
