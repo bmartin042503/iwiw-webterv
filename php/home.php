@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+function get_profile_picture($user_data) {
+    $user_dir = '../users/' . $user_data['id'];
+    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+    foreach ($allowed_extensions as $ext) {
+        $profile_picture_path = $user_dir . '/profile.' . $ext;
+        if(file_exists($profile_picture_path)) {
+            return $profile_picture_path;
+        }
+    }
+    return '../img/static/profile-pic.jpg';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
     <head>
@@ -110,7 +127,7 @@
                 <ul>
                     <li><img class="icon profile" src="../img/icons/added-icon.png" alt="új ismerősök menüpont"></li>
                     <li><img class="icon profile" src="../img/icons/message-icon.png" alt="üzenetek menüpont"></li>
-                    <li><img class="icon profile pic" src="../img/static/profile-pic.jpg" alt="profilkép menüpont"></li>
+                    <li><img class="icon profile pic" src="<?php echo get_profile_picture($_SESSION['user_data']); ?>" alt="profilkép menüpont"></li>
                 </ul>
             </nav>
         </header>

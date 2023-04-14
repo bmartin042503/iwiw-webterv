@@ -61,6 +61,7 @@ if(isset($_POST['register'])) {
 
     $data_file_path = $user_dir_path . '/data.txt';
     $user_data = [
+        'id' => $user_unique_id,
         'username' => $_POST['username'],
         'email' => $_POST['email'],
         'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),

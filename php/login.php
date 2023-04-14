@@ -10,6 +10,7 @@ function find_user_by_email($email) {
             if(file_exists($data_file)) {
                 $user_data = unserialize(file_get_contents($data_file)); {
                     if($user_data['email'] == $email) {
+                        $user_data['id'] = basename($user_directory->getPathname());
                         return $user_data;
                     }
                 }
@@ -27,7 +28,7 @@ if(isset($_POST['login_submit'])) {
     if($user_data) {
         if(password_verify($password, $user_data['password'])) {
             $_SESSION['user_data'] = $user_data;
-            header('Location: ../pages/home.html');
+            header('Location: ../php/home.php');
         } else {
             echo "<script>alert('Helytelen jelszó!'); window.location.href = '../index.html';</script>";
         }
