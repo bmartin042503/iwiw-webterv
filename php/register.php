@@ -68,13 +68,15 @@ if(isset($_POST['register'])) {
         'email' => $_POST['email'],
         'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
         'year_of_birth' => $_POST['year-of-birth'],
+        'year_of_registration' => date("Y-m-d"),
         'gender' => $_POST['gender'] == 'male' ? 1 : 0,
         'introduction' => $_POST['introduction'],
         'residence' => $_POST['residence'],
         'workplace' => $_POST['workplace'],
         'studies' => $_POST['studies'],
         'height' => $_POST['height'],
-        'weight' => $_POST['weight']
+        'weight' => $_POST['weight'],
+        'iwiwplus' => 0
     ];
     file_put_contents($data_file_path, serialize($user_data));
 
