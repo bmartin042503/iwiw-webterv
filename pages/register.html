@@ -25,12 +25,16 @@
                         <label for="email-label">E-mail cím:</label>
                         <input type="email" name="email" id="email-label" placeholder="pelda@citromail.hu" required>
 
-                        <label for="password-label">Jelszó:</label>
+                        <label for="password-label">Jelszó:
+                            <span class="passwd-msg" id="passwd-msg-1">
+                                A jelszónak legalább 8 karakter hosszúnak kell lennie, tartalmaznia kell legalább egy nagybetűt és egy számot.
+                            </span>
+                        </label>
                         <input type="password" name="password" id="password-label" required
                                pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"
                                title="A jelszónak legalább 8 karakter hosszúnak kell lennie, tartalmaznia kell legalább egy nagybetűt és egy számot.">
 
-                        <label for="password-check-label">Jelszó ismét:</label>
+                        <label for="password-check-label">Jelszó ismét: <span class="passwd-msg" id="passwd-msg-2">A jelszavak nem egyeznek!</span></label>
                         <input type="password" name="confirm_password" id="password-check-label" required>
 
                         <label for="year-of-birth-label">Születési év:</label>
@@ -77,8 +81,40 @@
                         </div>
 
                         <input type="reset" name="reset" value="Mezők törlése">
-                        <input type="submit"  name="register" value="Regisztráció">
+                        <input type="submit"  name="register"  id="submit-btn" value="Regisztráció">
                     </form>
+
+                    <script>
+                        const passwordInput = document.getElementById("password-label");
+                        const passwordAgainInput = document.getElementById("password-check-label");
+                        const submitButton = document.getElementById("submit-btn");
+                        const passwdMsg1 = document.getElementById("passwd-msg-1");
+                        const passwdMsg2 = document.getElementById("passwd-msg-2");
+                        const passwdRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+                        passwordInput.addEventListener("input",function (){
+                            if(passwdRegex.test(passwordInput.value))
+                            {
+                                submitButton.disabled = false;
+                                passwdMsg1.style.display = "none";
+                            }
+                            else{
+                                submitButton.disabled = this;
+                                passwdMsg1.style.display = "inline";
+                            }
+                        });
+
+                        passwordAgainInput.addEventListener("input", function() {
+                            if (passwordInput.value === passwordAgainInput.value) {
+                                submitButton.disabled = false;
+                                passwdMsg2.style.display = "none";
+                            } else {
+                                submitButton.disabled = true;
+                                passwdMsg2.style.display = "inline";
+                            }
+                        });
+                    </script>
+
 
                 </div>
             </div>
