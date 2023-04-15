@@ -28,6 +28,7 @@ if(isset($_POST['login_submit'])) {
     if($user_data) {
         if(password_verify($password, $user_data['password'])) {
             $_SESSION['user_data'] = $user_data;
+            $_SESSION['bejelentkezve'] = true;
             header('Location: ../php/home.php');
         } else {
             echo "<script>alert('Helytelen jelszó!'); window.location.href = '../index.html';</script>";

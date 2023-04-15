@@ -91,6 +91,7 @@ if(isset($_POST['register'])) {
         }
     }
     $_SESSION['user_data'] = $user_data;
+    $_SESSION['bejelentkezve'] = true;
     echo "<script>alert('Sikeres regisztráció!');</script>";
     header('Location: ../php/home.php');
 }
