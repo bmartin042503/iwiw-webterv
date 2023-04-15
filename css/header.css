@@ -25,7 +25,7 @@ header {
     height: auto;
 }
 
-nav {
+.side-menu, .main-menu {
     flex: 1 1 auto;
     display: flex;
     justify-content: flex-end;
@@ -88,6 +88,44 @@ li {
 .icon:hover {
     cursor: pointer;
     filter: brightness(80%);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown-menu ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+#logout-text {
+    font-weight: bold;
+    color: #051865;
 }
 
 
