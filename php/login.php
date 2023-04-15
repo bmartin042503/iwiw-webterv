@@ -1,24 +1,7 @@
 <?php
 session_start();
 
-function find_user_by_email($email) {
-    $users_dir = '../users/';
-    $users_directory = new DirectoryIterator($users_dir);
-    foreach($users_directory as $user_directory) {
-        if($user_directory->isDir()) {
-            $data_file = $user_directory->getPathname() . '/data.txt';
-            if(file_exists($data_file)) {
-                $user_data = unserialize(file_get_contents($data_file)); {
-                    if($user_data['email'] == $email) {
-                        $user_data['id'] = basename($user_directory->getPathname());
-                        return $user_data;
-                    }
-                }
-            }
-        }
-    }
-    return null;
-}
+require_once('find_user_by_email.php');
 
 if(isset($_POST['login_submit'])) {
     $email = $_POST['email'];
@@ -29,6 +12,12 @@ if(isset($_POST['login_submit'])) {
         if(password_verify($password, $user_data['password'])) {
             $_SESSION['user_data'] = $user_data;
             $_SESSION['bejelentkezve'] = true;
+
+            if(isset($_POST['remember'])){
+                setcookie('email',$email , time() + (86400 * 30), "/");
+                setcookie('password',$password , time() + (86400 * 30), "/");
+            }
+
             header('Location: ../php/home.php');
         } else {
             echo "<script>alert('Helytelen jelszó!'); window.location.href = '../index.html';</script>";

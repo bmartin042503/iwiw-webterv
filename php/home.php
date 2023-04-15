@@ -1,8 +1,10 @@
 <?php
+require('autocookielogin.php');
+
 session_start();
 
 if(!isset($_SESSION['bejelentkezve']) || !$_SESSION['bejelentkezve']) {
-    header('Location: ../index.html');
+    header('Location: ../index.php');
     exit;
 }
 require('getpfp.php');
