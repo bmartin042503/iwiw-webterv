@@ -24,9 +24,8 @@ require('getpfp.php');
         <script src="../js/user.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-
                 var profileLink = document.getElementById('ddm-profile');
-                profileLink.innerHTML = '<a href="#">Profilom' + ' ' + "(" + "<?php echo $_SESSION['user_data']['username']; ?>" + ")" + '</a>';
+                profileLink.innerHTML = '<a href="profile.php">Profilom' + ' ' + "(" + "<?php echo $_SESSION['user_data']['username']; ?>" + ")" + '</a>';
                 document.getElementById('profilkep').addEventListener('click', function() {
                     var dropdownMenu = document.getElementById('legordulomenu');
                     if (getComputedStyle(dropdownMenu).display === 'none') {
@@ -148,7 +147,7 @@ require('getpfp.php');
         </header>
         <nav class="dropdown-menu" id="legordulomenu">
             <ul>
-                <li><a href="#" id="ddm-profile">Profilom</a></li>
+                <li><a href="profile.php" id="ddm-profile">Profilom</a></li>
                 <li><a href="#">Beállítások és adatvédelem</a></li>
                 <li><a href="#">Kapcsolatfelvétel</a></li>
                 <li><a href="logout.php" id="logout-text">Kijelentkezés</a></li>
@@ -239,6 +238,16 @@ require('getpfp.php');
                 </div>
             </div>
             <div class="posts">
+                <div class="post-create">
+                    <div class="post-details">
+                        <img class="post-user-img" alt="profilkép" src="<?php echo get_profile_picture($_SESSION['user_data']); ?>" onclick="redirect(this)">
+                        <textarea name="post-create-description" id="post-create-input" placeholder="Mi jár a fejedben?" maxlength="600" rows="2"></textarea>
+                    </div>
+                    <div class="post-create-buttons">
+                        <input type="submit" name="photoadd"  id="photo-add-post" value="Fénykép hozzáadása">
+                        <input type="submit" name="submitpost"  id="submit-post" value="Bejegyzés létrehozása">
+                    </div>
+                </div>
                 <div class="post">
                     <div class="post-details">
                         <img class="post-user-img" src="../img/static/users/user-10.png" alt="profilkép" title="Juhász Erzsébet" onclick="redirect(this)">

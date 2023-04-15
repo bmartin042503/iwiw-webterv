@@ -54,7 +54,7 @@ main {
     border-radius: 10px;
 }
 
-.post {
+.post, .post-create {
     padding: 15px;
     margin: 0 15px 20px 15px;
     border-radius: 15px;
@@ -64,6 +64,7 @@ main {
 .post-img {
     border-radius: 10px;
 }
+
 
 .posts {
     overflow-y: scroll;
@@ -98,8 +99,55 @@ main {
     text-decoration: underline;
 }
 
-.post {
+.post, .post-create {
     color: black;
+}
+
+#post-create-input {
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 1em;
+    font-family: 'Roboto', 'Arial';
+    resize: none;
+    border-radius: 10px;
+    border: 2px solid #c6c6c6;
+    width: 100%;
+}
+
+.post-create-buttons {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#submit-post {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    width: 30%;
+    font-size: .8em;
+    background-color: #051865;
+}
+
+#submit-post:hover {
+    background-color: #041147;
+}
+
+#photo-add-post {
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px;
+    width: 30%;
+    color: #051865;
+    font-weight: bold;
+    border: 2px solid #051865;
 }
 
 .post-interactions {
