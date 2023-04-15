@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['bejelentkezve']) || !$_SESSION['bejelentkezve']) {
+    header('Location: ../index.html');
+    exit;
+}
+
 function get_profile_picture($user_data) {
     $user_dir = '../users/' . $user_data['id'];
     $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
@@ -10,7 +15,7 @@ function get_profile_picture($user_data) {
             return $profile_picture_path;
         }
     }
-    return '../img/static/profile-pic.jpg';
+    return '../img/static/default-profile.png';
 }
 
 ?>
