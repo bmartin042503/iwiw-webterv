@@ -27,7 +27,7 @@ require('getpfp.php');
                 profileLink.innerHTML = '<a href="#">Profilom' + ' ' + "(" + "<?php echo $_SESSION['user_data']['username']; ?>" + ")" + '</a>';
                 document.getElementById('profilkep').addEventListener('click', function() {
                     var dropdownMenu = document.getElementById('legordulomenu');
-                    if(dropdownMenu.style.display === 'none') {
+                    if (getComputedStyle(dropdownMenu).display === 'none') {
                         dropdownMenu.style.display = 'block';
                     } else {
                         dropdownMenu.style.display = 'none';
