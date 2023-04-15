@@ -239,14 +239,16 @@ require('getpfp.php');
             </div>
             <div class="posts">
                 <div class="post-create">
-                    <div class="post-details">
-                        <img class="post-user-img" alt="profilkép" src="<?php echo get_profile_picture($_SESSION['user_data']); ?>" onclick="redirect(this)">
-                        <textarea name="post-create-description" id="post-create-input" placeholder="Mi jár a fejedben?" maxlength="600" rows="2"></textarea>
-                    </div>
-                    <div class="post-create-buttons">
-                        <input type="submit" name="photoadd"  id="photo-add-post" value="Fénykép hozzáadása">
-                        <input type="submit" name="submitpost"  id="submit-post" value="Bejegyzés létrehozása">
-                    </div>
+                    <form action="post-add.php" method="POST" enctype="multipart/form-data">
+                        <div class="post-details">
+                            <img class="post-user-img" alt="profilkép" src="<?php echo get_profile_picture($_SESSION['user_data']); ?>" onclick="redirect(this)">
+                            <textarea name="post-create-description" id="post-create-input" placeholder="Mi jár a fejedben?" maxlength="600" rows="2"></textarea>
+                        </div>
+                        <div class="post-create-buttons">
+                            <input type="submit" name="photoadd"  id="photo-add-post" value="Fénykép hozzáadása">
+                            <input type="submit" name="submitpost"  id="submit-post" value="Bejegyzés létrehozása">
+                        </div>
+                    </form>
                 </div>
                 <div class="post">
                     <div class="post-details">
