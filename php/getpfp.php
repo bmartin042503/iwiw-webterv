@@ -20,5 +20,5 @@ function get_profile_picture_userdir($user_dir)
             return $profile_picture_path;
         }
     }
-    return '../img/static/profile-pic.jpg';
+    return '../img/static/default-profile.png';
 }
