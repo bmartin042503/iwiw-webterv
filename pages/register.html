@@ -26,7 +26,9 @@
                         <input type="email" name="email" id="email-label" placeholder="pelda@citromail.hu" required>
 
                         <label for="password-label">Jelszó:</label>
-                        <input type="password" name="password" id="password-label" required>
+                        <input type="password" name="password" id="password-label" required
+                               pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"
+                               title="A jelszónak legalább 8 karakter hosszúnak kell lennie, tartalmaznia kell legalább egy nagybetűt és egy számot.">
 
                         <label for="password-check-label">Jelszó ismét:</label>
                         <input type="password" name="confirm_password" id="password-check-label" required>
