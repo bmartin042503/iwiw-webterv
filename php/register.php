@@ -76,6 +76,7 @@ if(isset($_POST['register'])) {
         'studies' => $_POST['studies'],
         'height' => $_POST['height'],
         'weight' => $_POST['weight'],
+        'acquaintances' => rand(0,600),
         'iwiwplus' => 0
     ];
     file_put_contents($data_file_path, serialize($user_data));

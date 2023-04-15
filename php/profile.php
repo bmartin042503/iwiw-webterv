@@ -1,7 +1,60 @@
+<?php
+function get_profile_picture($user_dir) {
+    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+    foreach ($allowed_extensions as $ext) {
+        $profile_picture_path = $user_dir . '/profile.' . $ext;
+        if(file_exists($profile_picture_path)) {
+            return $profile_picture_path;
+        }
+    }
+    return '../img/static/profile-pic.jpg';
+}
+
+function get_uid($username)
+{
+    $users_dir = '../users/';
+    if (!file_exists($users_dir)) {
+        mkdir($users_dir, 0777, true);
+    }
+
+    $users_directory = new DirectoryIterator($users_dir);
+    foreach($users_directory as $user_directory) {
+        if($user_directory->isDir()) {
+            $data_file = $user_directory->getPathname() . '/data.txt';
+            if(file_exists($data_file)) {
+                $user_data = unserialize(file_get_contents($data_file));
+                if($user_data['username'] == $username) {
+                    return $user_data['id'];
+                }
+            }
+        }
+    }
+    return "";
+}
+
+$users_dir = '../users/';
+$userid = "";
+
+if(isset($_GET['user'])) {
+    $userid = get_uid($_GET['user']);
+}
+else{
+    //user not found
+}
+if($userid==''){
+    //user not found
+}
+
+//$userid = '643a710a5a5b41.52901773';
+
+$user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
+?>
+
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <title>Kezdőlap | iWiW</title>
+    <title><?php echo $user_data['username']; ?> | iWiW</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="../css/profile.css"/>
@@ -12,7 +65,7 @@
 <body>
 <header>
     <div class="logo">
-        <a href="../pages/home.html"><img src="../img/iwiw-logo-512x512.png" alt="iwiw logó"></a>
+        <a href="home.php"><img src="../img/iwiw-logo-512x512.png" alt="iwiw logó"></a>
     </div>
     <div class="search-container">
         <input type="text" name="searchbar" size="30" placeholder="Keresés az iWiW-en.."/>
@@ -37,26 +90,6 @@
     </nav>
 </header>
 <main>
-
-
-<?php
-function get_profile_picture($user_dir) {
-    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
-    foreach ($allowed_extensions as $ext) {
-        $profile_picture_path = $user_dir . '/profile.' . $ext;
-        if(file_exists($profile_picture_path)) {
-            return $profile_picture_path;
-        }
-    }
-    return '../img/static/profile-pic.jpg';
-}
-
-$users_dir = '../users/';
-$userid = '643a710a5a5b41.52901773';
-
-$user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
-?>
-
     <div>
         <a href="home.html"><img src="../img/iwiw-logo.png" class="iwiw-logo" alt="iwiw logó"></a>
     </div>
@@ -85,10 +118,10 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
         <span class="user-email">E-mail cím: <?php echo $user_data['email'];?></span>
         <span class="user-registered">Regisztráció ideje: <?php echo $user_data['year_of_registration'];?></span>
         <span class="user-height">Magasság: <?php echo $user_data['height']==''?"(nem adta meg)":$user_data['height'];?></span>
-        <span class="user-weight">Súly: <?php echo $user_data['weight']==''?"(nem adta meg)":user_data['weight'];?></span>
+        <span class="user-weight">Súly: <?php echo $user_data['weight']==''?"(nem adta meg)":$user_data['weight'];?></span>
         <span class="user-plus">iWiW Plus: <?php echo $user_data['iwiwplus']==1?"igen":"nem";?></span>
     </div>
-    <span class="user-friends">Ismerősök (<?php echo rand(0,300) ?>)</span>
+    <span class="user-friends">Ismerősök (<?php echo $user_data['acquaintances'];?>)</span>
 </main>
 </body>
 </html>

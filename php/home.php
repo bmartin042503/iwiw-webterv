@@ -54,7 +54,7 @@ function get_profile_picture($user_data) {
                 if(obj.title == "") {
                     title = obj.textContent;
                 }
-                window.location.href = "profile.html?title=" + encodeURIComponent(title);
+                window.location.href = "profile.php?user=" + encodeURIComponent(title);
             }
 
             let modified = false;
@@ -107,7 +107,7 @@ function get_profile_picture($user_data) {
     <body>
         <header>
             <div class="logo">
-                <a href="../pages/home.html"><img src="../img/iwiw-logo-512x512.png" alt="iwiw logó"></a>
+                <a href="home.php"><img src="../img/iwiw-logo-512x512.png" alt="iwiw logó"></a>
             </div>
             <div class="search-container">
                 <input type="text" name="searchbar" size="30" placeholder="Keresés az iWiW-en.."/>
