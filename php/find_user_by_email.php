@@ -1,6 +1,6 @@
 <?php
 function find_user_by_email($email) {
-    $users_dir = '../users/';
+    $users_dir = '../db/users/';
     $users_directory = new DirectoryIterator($users_dir);
     foreach($users_directory as $user_directory) {
         if($user_directory->isDir()) {

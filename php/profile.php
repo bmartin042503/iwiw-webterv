@@ -12,7 +12,7 @@ require('getpfp.php');
 
 function get_uid($username)
 {
-    $users_dir = '../users/';
+    $users_dir = '../db/users/';
     if (!file_exists($users_dir)) {
         mkdir($users_dir, 0777, true);
     }
@@ -32,7 +32,7 @@ function get_uid($username)
     return "";
 }
 
-$users_dir = '../users/';
+$users_dir = '../db/users/';
 $userid = "";
 
 if(isset($_GET['user'])) {

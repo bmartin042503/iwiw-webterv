@@ -1,6 +1,6 @@
 <?php
 function get_profile_picture($user_data) {
-    $user_dir = '../users/' . $user_data['id'];
+    $user_dir = '../db/users/' . $user_data['id'];
     $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
     foreach ($allowed_extensions as $ext) {
         $profile_picture_path = $user_dir . '/profile.' . $ext;

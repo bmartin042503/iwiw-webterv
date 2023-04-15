@@ -24,7 +24,7 @@ function validate_form_data() {
 }
 
 function email_exists($email) {
-    $users_dir = '../users/';
+    $users_dir = '../db/users/';
 
     if (!file_exists($users_dir)) {
         mkdir($users_dir, 0777, true);
@@ -58,7 +58,7 @@ if(isset($_POST['register'])) {
     }
 
     $user_unique_id = generate_unique_id();
-    $user_dir_path = '../users/' . $user_unique_id;
+    $user_dir_path = '../db/users/' . $user_unique_id;
     mkdir($user_dir_path);
 
     $data_file_path = $user_dir_path . '/data.txt';
