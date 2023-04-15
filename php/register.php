@@ -5,9 +5,10 @@ function generate_unique_id() {
 }
 
 function check_password($password) {
-    return strlen($password) >= 8 &&
-        preg_match('/[A-Z]/', $password) &&
-        preg_match('/\d/', $password);
+    return preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$/',$password);
+//    return strlen($password) >= 8 &&
+//        preg_match('/[A-Z]/', $password) &&
+//        preg_match('/\d/', $password);
 }
 
 function validate_form_data() {
