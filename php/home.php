@@ -15,7 +15,7 @@ function get_profile_picture($user_data) {
             return $profile_picture_path;
         }
     }
-    return '../img/static/profile-pic.jpg';
+    return '../img/static/default-profile.png';
 }
 
 ?>

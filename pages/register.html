@@ -26,6 +26,7 @@
                         <input type="email" name="email" id="email-label" placeholder="pelda@citromail.hu" required>
 
                         <label for="password-label">Jelszó:
+                            <br>
                             <span class="passwd-msg" id="passwd-msg-1">
                                 A jelszónak legalább 8 karakter hosszúnak kell lennie, tartalmaznia kell legalább egy nagybetűt és egy számot.
                             </span>
@@ -34,7 +35,7 @@
                                pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"
                                title="A jelszónak legalább 8 karakter hosszúnak kell lennie, tartalmaznia kell legalább egy nagybetűt és egy számot.">
 
-                        <label for="password-check-label">Jelszó ismét: <span class="passwd-msg" id="passwd-msg-2">A jelszavak nem egyeznek!</span></label>
+                        <label for="password-check-label">Jelszó ismét: <br><span class="passwd-msg" id="passwd-msg-2">A jelszavak nem egyeznek!</span></label>
                         <input type="password" name="confirm_password" id="password-check-label" required>
 
                         <label for="year-of-birth-label">Születési év:</label>
@@ -99,7 +100,7 @@
                                 passwdMsg1.style.display = "none";
                             }
                             else{
-                                submitButton.disabled = this;
+                                submitButton.disabled = true;
                                 passwdMsg1.style.display = "inline";
                             }
                         });
