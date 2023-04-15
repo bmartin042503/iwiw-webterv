@@ -5,19 +5,7 @@ if(!isset($_SESSION['bejelentkezve']) || !$_SESSION['bejelentkezve']) {
     header('Location: ../index.html');
     exit;
 }
-
-function get_profile_picture($user_data) {
-    $user_dir = '../users/' . $user_data['id'];
-    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
-    foreach ($allowed_extensions as $ext) {
-        $profile_picture_path = $user_dir . '/profile.' . $ext;
-        if(file_exists($profile_picture_path)) {
-            return $profile_picture_path;
-        }
-    }
-    return '../img/static/default-profile.png';
-}
-
+require('getpfp.php');
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +67,7 @@ function get_profile_picture($user_data) {
                 if(obj.title == "") {
                     title = obj.textContent;
                 }
-                window.location.href = "profile.html?title=" + encodeURIComponent(title);
+                window.location.href = "profile.php?user=" + encodeURIComponent(title);
             }
 
             let modified = false;
@@ -132,7 +120,7 @@ function get_profile_picture($user_data) {
     <body>
         <header>
             <div class="logo">
-                <a href="../pages/home.html"><img src="../img/iwiw-logo-512x512.png" alt="iwiw logó"></a>
+                <a href="home.php"><img src="../img/iwiw-logo-512x512.png" alt="iwiw logó"></a>
             </div>
             <div class="search-container">
                 <input type="text" name="searchbar" size="30" placeholder="Keresés az iWiW-en.."/>
