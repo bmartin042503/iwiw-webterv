@@ -45,8 +45,6 @@ if($userid==''){
     //user not found
 }
 
-//$userid = '643a710a5a5b41.52901773';
-
 $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
 ?>
 
@@ -61,6 +59,34 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
         <link rel="stylesheet" type="text/css" href="../css/header.css"/>
         <link rel="stylesheet" type="text/css" href="../css/print/profile.css"/>
         <link rel="icon" type="image/x-icon" href="../img/iwiw-logo-16x16.png"/>
+        <script>
+            function redirect(obj) {
+                var title = obj.title;
+                if(obj.title == "") {
+                    title = obj.textContent;
+                }
+                window.location.href = "profile.php?user=" + encodeURIComponent(title);
+            }
+            
+            document.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('profilkep').addEventListener('click', function () {
+                    var dropdownMenu = document.getElementById('legordulomenu');
+                    if (getComputedStyle(dropdownMenu).display === 'none') {
+                        dropdownMenu.style.display = 'block';
+                    } else {
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
+
+                document.addEventListener('click', function (event) {
+                    var dropdownMenu = document.getElementById('legordulomenu');
+                    var profilKep = document.getElementById('profilkep');
+                    if (!profilKep.contains(event.target)) {
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
         <header>
@@ -85,10 +111,18 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
                 <ul>
                     <li><img class="icon profile" src="../img/icons/added-icon.png" alt="új ismerősök menüpont"></li>
                     <li><img class="icon profile" src="../img/icons/message-icon.png" alt="üzenetek menüpont"></li>
-                    <li><img class="icon profile pic" src="<?php echo get_profile_picture($_SESSION['user_data']); ?>" alt="profilkép menüpont"></li>
+                    <li><img class="icon profile pic" id="profilkep" src="<?php echo get_profile_picture($_SESSION['user_data']); ?>" alt="profilkép menüpont"></li>
                 </ul>
             </nav>
         </header>
+        <nav class="dropdown-menu" id="legordulomenu">
+            <ul>
+                <li><span onclick="redirect(this)" title="<?php echo $_SESSION['user_data']['username'] ?>" id="ddm-profile">Profilom (<?php echo $_SESSION['user_data']['username']; ?>)</span></li>
+                <li><a href="#">Beállítások és adatvédelem</a></li>
+                <li><a href="../pages/footer/contact.html">Kapcsolatfelvétel</a></li>
+                <li><a href="logout.php" id="logout-text">Kijelentkezés</a></li>
+            </ul>
+        </nav>
         <main>
             <div>
                 <a href="home.html"><img src="../img/iwiw-logo.png" class="iwiw-logo" alt="iwiw logó"></a>

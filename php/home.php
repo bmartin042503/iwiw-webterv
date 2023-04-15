@@ -24,8 +24,8 @@ require('getpfp.php');
         <script src="../js/user.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                var profileLink = document.getElementById('ddm-profile');
-                profileLink.innerHTML = '<a href="profile.php">Profilom' + ' ' + "(" + "<?php echo $_SESSION['user_data']['username']; ?>" + ")" + '</a>';
+                //var profileLink = document.getElementById('ddm-profile');
+                //profileLink.innerHTML = '<a href="profile.php">Profilom' + ' ' + "(" + "<?php echo $_SESSION['user_data']['username']; ?>" + ")" + '</a>';
                 document.getElementById('profilkep').addEventListener('click', function() {
                     var dropdownMenu = document.getElementById('legordulomenu');
                     if (getComputedStyle(dropdownMenu).display === 'none') {
@@ -147,9 +147,9 @@ require('getpfp.php');
         </header>
         <nav class="dropdown-menu" id="legordulomenu">
             <ul>
-                <li><a href="profile.php" id="ddm-profile">Profilom</a></li>
+                <li><span onclick="redirect(this)" title="<?php echo $_SESSION['user_data']['username'] ?>" id="ddm-profile">Profilom (<?php echo $_SESSION['user_data']['username']; ?>)</span></li>
                 <li><a href="#">Beállítások és adatvédelem</a></li>
-                <li><a href="#">Kapcsolatfelvétel</a></li>
+                <li><a href="../pages/footer/contact.html">Kapcsolatfelvétel</a></li>
                 <li><a href="logout.php" id="logout-text">Kijelentkezés</a></li>
             </ul>
         </nav>
