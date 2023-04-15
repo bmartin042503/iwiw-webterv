@@ -112,6 +112,11 @@ button {
     background-color: #fc2a2a;
 }
 
+#missing-user{
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
 .add-button {
     transition: background-color 0.3s ease;
     cursor: pointer;

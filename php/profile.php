@@ -34,15 +34,16 @@ function get_uid($username)
 
 $users_dir = '../db/users/';
 $userid = "";
+$notfound = false;
 
 if(isset($_GET['user'])) {
     $userid = get_uid($_GET['user']);
 }
 else{
-    //user not found
+    $notfound = true; //user not found
 }
 if($userid==''){
-    //user not found
+    $notfound = true;//user not found
 }
 
 $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
@@ -67,7 +68,7 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
                 }
                 window.location.href = "profile.php?user=" + encodeURIComponent(title);
             }
-            
+
             document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('profilkep').addEventListener('click', function () {
                     var dropdownMenu = document.getElementById('legordulomenu');
@@ -85,6 +86,28 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
                         dropdownMenu.style.display = 'none';
                     }
                 });
+
+                if(<?php echo (bool)$notfound; ?>)
+                {
+                    let profileInfo = document.getElementsByClassName('profile-info');
+                    for (let i = 0; i < profileInfo.length; i++) profileInfo[i].innerHTML='<span id=missing-user>Nem létező vagy törölt felhasználó</span>';
+
+                    profileInfo = document.getElementsByClassName('profile-interactions');
+                    for (let i = 0; i < profileInfo.length; i++) profileInfo[i].innerHTML='';
+
+                    profileInfo = document.getElementById('profile-separator');
+                    profileInfo.style="visibility: hidden;"
+
+                    profileInfo = document.getElementsByClassName('other-information-label');
+                    for (let i = 0; i < profileInfo.length; i++) profileInfo[i].innerHTML='';
+
+                    profileInfo = document.getElementsByClassName('other-information');
+                    for (let i = 0; i < profileInfo.length; i++) profileInfo[i].innerHTML='';
+
+                    profileInfo = document.getElementsByClassName('user-friends');
+                    for (let i = 0; i < profileInfo.length; i++) profileInfo[i].innerHTML='';
+
+                }
             });
         </script>
     </head>
