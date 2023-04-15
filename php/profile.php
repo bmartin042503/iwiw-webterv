@@ -1,14 +1,12 @@
 <?php
-function get_profile_picture($user_dir) {
-    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
-    foreach ($allowed_extensions as $ext) {
-        $profile_picture_path = $user_dir . '/profile.' . $ext;
-        if(file_exists($profile_picture_path)) {
-            return $profile_picture_path;
-        }
-    }
-    return '../img/static/profile-pic.jpg';
+session_start();
+
+if(!isset($_SESSION['bejelentkezve']) || !$_SESSION['bejelentkezve']) {
+    header('Location: ../index.html');
+    exit;
 }
+
+require('getpfp.php');
 
 function get_uid($username)
 {
@@ -85,7 +83,7 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
         <ul>
             <li><img class="icon profile" src="../img/icons/added-icon.png" alt="új ismerősök menüpont"></li>
             <li><img class="icon profile" src="../img/icons/message-icon.png" alt="üzenetek menüpont"></li>
-            <li><img class="icon profile pic" src="../img/static/profile-pic.jpg" alt="profilkép menüpont"></li>
+            <li><img class="icon profile pic" src="<?php echo get_profile_picture($_SESSION['user_data']); ?>" alt="profilkép menüpont"></li>
         </ul>
     </nav>
 </header>
@@ -94,7 +92,7 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
         <a href="home.html"><img src="../img/iwiw-logo.png" class="iwiw-logo" alt="iwiw logó"></a>
     </div>
     <div class="profile-info">
-        <img src="<?php echo get_profile_picture($users_dir.$userid);?>" class="user-img" alt="profilkép">
+        <img src="<?php echo get_profile_picture_userdir($users_dir.$userid);?>" class="user-img" alt="profilkép">
         <div class="profile-details">
             <div>
                 <span class="user-fullname"><?php echo $user_data['username'];?></span>
