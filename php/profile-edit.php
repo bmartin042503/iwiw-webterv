@@ -23,6 +23,13 @@ require('getpfp.php');
         <link rel="stylesheet" type="text/css" href="../css/print/profile-edit.css"/>
         <link rel="icon" type="image/x-icon" href="../img/iwiw-logo-16x16.png"/>
         <script>
+            function redirect(obj) {
+                var title = obj.title;
+                if(obj.title == "") {
+                    title = obj.textContent;
+                }
+                window.location.href = "profile.php?user=" + encodeURIComponent(title);
+            }
             document.addEventListener('DOMContentLoaded', () => {
                 var myFileInput = document.getElementById("myFileInput");
                 var myForm = document.getElementById("myForm");
@@ -119,8 +126,8 @@ require('getpfp.php');
                 <div>
                     <span class="user-fullname"><?php echo $_SESSION['user_data']['username'];?></span>
                     <img src="../img/iwiw-plus-logo.png" class="iwiw-plus-logo" title="iWiW+ Tagság" alt="iWiW Plus Tagság"
-                         style="visibility: <?php echo $_SESSION['user_data']['iwiwplus']==1?"visible":"hidden";?>">
-                    <span class="iwiw-plus-label" style="visibility: <?php echo $_SESSION['user_data']['iwiwplus']==1?"visible":"hidden";?>">>tag</span>
+                         style="visibility: <?php echo $_SESSION['user_data']['iwiwplus']=="true"?"visible":"hidden";?>">
+                    <span class="iwiw-plus-label" style="visibility: <?php echo $_SESSION['user_data']['iwiwplus']=="true"?"visible":"hidden";?>">>tag</span>
                 </div>
                 <div>
                     <form id="introduction-form" action="update-intro.php" method="post" enctype="multipart/form-data">

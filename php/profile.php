@@ -166,8 +166,8 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
                     <div>
                         <span class="user-fullname"><?php echo $user_data['username'];?></span>
                         <img src="../img/iwiw-plus-logo.png" class="iwiw-plus-logo" title="iWiW+ Tagság" alt="iWiW Plus Tagság"
-                            style="visibility: <?php echo $user_data['iwiwplus']==1?"visible":"hidden";?>">
-                        <span class="iwiw-plus-label" style="visibility: <?php echo $user_data['iwiwplus']==1?"visible":"hidden";?>">>tag</span>
+                            style="visibility: <?php echo $user_data['iwiwplus']=="true"?"visible":"hidden";?>">
+                        <span class="iwiw-plus-label" style="visibility: <?php echo $user_data['iwiwplus']=="true"?"visible":"hidden";?>">tag</span>
                     </div>
                     <p class="user-introduction"><?php echo $user_data['introduction'];?></p>
                     <span class="user-birthdate">Születési idő: <?php echo $user_data['year_of_birth'];?></span>
