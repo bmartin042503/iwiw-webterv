@@ -34,6 +34,25 @@ require('getpfp.php');
                 });
             });
 
+            document.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('profilkep').addEventListener('click', function () {
+                    var dropdownMenu = document.getElementById('legordulomenu');
+                    if (getComputedStyle(dropdownMenu).display === 'none') {
+                        dropdownMenu.style.display = 'block';
+                    } else {
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
+
+                document.addEventListener('click', function (event) {
+                    var dropdownMenu = document.getElementById('legordulomenu');
+                    var profilKep = document.getElementById('profilkep');
+                    if (!profilKep.contains(event.target)) {
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
+            });
+
             function validateAndSubmit() {
                 document.getElementById('otherform').submit();
                 //  const h = document.getElementById("height").value==="" || /[^0-9]/.test(document.getElementById("height").value);
