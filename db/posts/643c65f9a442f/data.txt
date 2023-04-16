@@ -1,0 +1,1 @@
+a:6:{s:2:"id";s:13:"643c65f9a442f";s:7:"user_id";s:23:"643c64e94b0805.90200471";s:4:"date";s:19:"2023-04-16 23:17:45";s:11:"description";s:53:"huh még 43 perc és lezárul a 2. mérföldkő na ne";s:5:"likes";i:0;s:6:"shares";i:0;}
