@@ -42,7 +42,7 @@
     width: 240px;
 }
 
-#otherBtn{
+#otherBtn,#up-pass-btn{
     width: 300px;
     transition: background-color 0.3s ease;
     cursor: pointer;
@@ -51,6 +51,13 @@
     background-color: #051865;
     margin-top: 7px;
 }
-#otherBtn:hover {
+#otherBtn:hover,#up-pass-btn:hover {
     background-color: #041147;
+}
+#up-pass-btn{
+    width: 100%;
+}
+
+#pass-info{
+    margin-top: 0;
 }
