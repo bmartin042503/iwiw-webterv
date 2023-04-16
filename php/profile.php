@@ -50,7 +50,7 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
 function is_admin() {
     if($_SESSION['user_data']['admin'] == "true") {
         global $user_data;
-        echo '<button type="submit" name="uid" value="'. $user_data['id'] .'" id="delete-button">Felhasználó törlése (ADMIN)</button>';
+        echo '<form action="delete-account.php" class="delete-user-form" style="display: inline-block;" method="post"><button type="submit" name="uid" value="'. $user_data['id'] .'" id="delete-button">Felhasználó törlése (ADMIN)</button></form>';
     } 
 }
 ?>
@@ -179,11 +179,9 @@ function is_admin() {
                     <span class="user-birthdate">Születési idő: <?php echo $user_data['year_of_birth'];?></span>
                 </div>
             </div>
-            <form action="delete-account.php" class="profile-interactions" method="post">
-                <button type="submit" name="add-friend" id="add-button" onclick="">Jelölés</button>
-                <button type="submit" name="send-msg" id="message-button">Üzenet küldése</button>
-                <?php is_admin($_SESSION['user_data']) ?>
-            </form>
+            <button type="submit" name="add-friend" id="add-button" onclick="">Jelölés</button>
+            <button type="submit" name="send-msg" id="message-button">Üzenet küldése</button>
+            <?php is_admin() ?>
             <hr id="profile-separator">
             <span class="other-information-label">Egyéb információ</span>
             <div class="other-information">
