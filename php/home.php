@@ -8,6 +8,83 @@ if(!isset($_SESSION['bejelentkezve']) || !$_SESSION['bejelentkezve']) {
     exit;
 }
 require('getpfp.php');
+require('find_user_by_id.php');
+
+function display_posts() {
+    $post_directories = glob('../db/posts/*', GLOB_ONLYDIR);
+
+    foreach($post_directories as $post_directory) {
+        $data_file = $post_directory . '/data.txt';
+        $comments_file = $post_directory . '/comments.txt';
+        $post_data = null;
+        $post_image = null;
+
+        if(file_exists($data_file)) {
+            $post_data = unserialize(file_get_contents($data_file));
+            $image_extensions = ['png', 'jpg', 'jpeg', 'gif'];
+
+            foreach($image_extensions as $ext) {
+                if(file_exists($post_directory . '/post-img.' . $ext)) {
+                    $post_image = $post_directory . '/post-img.' . $ext;
+                    break;
+                }
+            }
+        }
+
+        $post_user_data = find_user_by_id($post_data['user_id']);
+        $profile_picture = get_profile_picture($post_user_data);
+
+        echo '<div class="post">';
+        echo '<div class="post-details">';
+        echo '<img class="post-user-img" src="' . $profile_picture . '" alt="profilkép" title="' . $post_user_data['username'] . '">';
+        echo '<div class="post-details-info">';
+        echo '<span class="post-user-name" title="' . $post_user_data['username'] . '">' . $post_user_data['username'] . '</span>';
+        echo '<span class="post-date">' . $post_data['date'] . '</span>';
+        echo '</div>';
+        echo '</div>';
+        echo '<p class="post-description">' . nl2br($post_data['description']) . '</p>';
+    
+        if($post_image) {
+            echo '<img class="post-img" src="' . $post_image . '" alt="bejegyzés képe">';
+        }
+
+        echo '<hr class="post-top-separator">';
+        echo '<div class="post-interactions">';
+        echo '<div class="interaction">';
+        echo '<img class="like-button" src="../img/icons/like-icon.png" alt="like">';
+        echo '<span class="like-count i-label">' . $post_data['likes'] . ' ember kedveli</span>';
+        echo '</div>';
+
+        $comments = null;
+        $comment_count = 0;
+        if(file_exists($comments_file)) {
+            $comments = unserialize(file_get_contents($comments_file));
+            $comment_count = count($comments);
+        }
+
+        echo '<div class="interaction">';
+        echo '<img class="comment-button" src="../img/icons/comment-icon.png" alt="komment">';
+        echo '<span class="comment-count i-label">' . $comment_count . ' hozzászólás</span>';
+        echo '</div>';
+        echo '<div class="interaction">';
+        echo '<img class="share-button" src="../img/icons/share-icon.png" alt="megosztás">';
+        echo '<span class="share-count i-label">' . $post_data['shares'] . ' megosztás</span>';
+        echo '</div>';
+        echo '</div>';
+
+        if($comment_count > 0) {
+            echo '<hr class="post-bottom-separator">';
+            echo '<div class="post-comments">';
+
+            foreach($comments as $comment) {
+                // TODO : majd ha lesz komment létrehozás akkor befejezem itt
+            }
+            echo '</div>';
+        }
+        echo '</div>';
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -245,11 +322,18 @@ require('getpfp.php');
                             <textarea name="post-create-description" id="post-create-input" placeholder="Mi jár a fejedben?" maxlength="600" rows="2"></textarea>
                         </div>
                         <div class="post-create-buttons">
-                            <input type="submit" name="photoadd"  id="photo-add-post" value="Fénykép hozzáadása">
+                            <label for="photo-add-post" id="photo-add-label">Fénykép hozzáadása</label>
+                            <input type="file" name="photoadd" accept=".png, .jpg, .jpeg, .gif" id="photo-add-post">
                             <input type="submit" name="submitpost"  id="submit-post" value="Bejegyzés létrehozása">
                         </div>
                     </form>
+                    <?php if(isset($_SESSION['post-error'])): ?>
+                        <div class="post-error-msg">
+                            <?php echo $_SESSION['post-error']; unset($_SESSION['post-error']); ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
+                <?php display_posts(); ?>
                 <div class="post">
                     <div class="post-details">
                         <img class="post-user-img" src="../img/static/users/user-10.png" alt="profilkép" title="Juhász Erzsébet" onclick="redirect(this)">

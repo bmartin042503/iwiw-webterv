@@ -139,6 +139,11 @@ main {
 }
 
 #photo-add-post {
+    display: none;
+}
+
+#photo-add-label {
+    text-align: center;
     background: none;
     border: none;
     cursor: pointer;
@@ -148,6 +153,11 @@ main {
     color: #051865;
     font-weight: bold;
     border: 2px solid #051865;
+}
+
+.post-error-msg {
+    margin-top: 10px;
+    color: red;
 }
 
 .post-interactions {
