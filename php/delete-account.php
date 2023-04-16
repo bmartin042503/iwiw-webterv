@@ -17,6 +17,27 @@ if(isset($_POST['uid'])){
         rmdir($dir_path);
     }
 
+    $post_del_path = '../db/posts/';
+    if(file_exists($post_del_path)) {
+        $post_dir_iterator = new DirectoryIterator($post_del_path);
+        foreach($post_dir_iterator as $post_dir) {
+            if($post_dir->isDir()) {
+                $data_file = $post_dir->getPathname() . '/data.txt';
+                if(file_exists($data_file)) {
+                    $post_data = unserialize(file_get_contents($data_file));
+                    if($post_data['user_id'] == $_POST['uid']) {
+                        $files = glob($post_dir . '/*');
+                        foreach ($files as $file) {
+                            unlink($file);
+                        }
+                        rmdir($post_dir);
+                    }
+                }
+            }
+        }
+    }
+
+
     if($_POST['uid']==$_SESSION['user_data']['id']){
         $_SESSION = array();
         session_destroy();

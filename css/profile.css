@@ -108,6 +108,14 @@ button {
     background-color: #f75d5d;
 }
 
+#delete-button {
+    cursor: pointer; 
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    width: 240px;
+}
+
 #message-button:hover {
     background-color: #fc2a2a;
 }

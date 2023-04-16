@@ -47,14 +47,10 @@ if($userid==''){
 }
 
 $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
-
-if(isset($_POST['delete-user'])) {
-    // TODO : $user_data['id']-t átadni törlő PHP kódra
-}
-
-function is_admin($user_data) {
-    if($user_data['admin'] == "true") {
-        echo '<button type="submit" name="delete-user" id="message-button">Felhasználó törlése</button>';
+function is_admin() {
+    if($_SESSION['user_data']['admin'] == "true") {
+        global $user_data;
+        echo '<button type="submit" name="uid" value="'. $user_data['id'] .'" id="delete-button">Felhasználó törlése (ADMIN)</button>';
     } 
 }
 ?>
@@ -161,7 +157,7 @@ function is_admin($user_data) {
         <nav class="dropdown-menu" id="legordulomenu">
             <ul>
                 <li><span onclick="redirect(this)" title="<?php echo $_SESSION['user_data']['username'] ?>" id="ddm-profile">Profilom (<?php echo $_SESSION['user_data']['username']; ?>)</span></li>
-                <li><a href="#">Beállítások és adatvédelem</a></li>
+                <li><a href="giveadmin.php">Beállítások és adatvédelem</a></li>
                 <li><a href="../pages/footer/contact.html">Kapcsolatfelvétel</a></li>
                 <li><a href="logout.php" id="logout-text">Kijelentkezés</a></li>
             </ul>
@@ -183,13 +179,11 @@ function is_admin($user_data) {
                     <span class="user-birthdate">Születési idő: <?php echo $user_data['year_of_birth'];?></span>
                 </div>
             </div>
-            <div class="profile-interactions">
-                <form action="" method="post">
-                    <button type="submit" name="add-friend" id="add-button" onclick="">Jelölés</button>
-                    <button type="submit" name="send-msg" id="message-button">Üzenet küldése</button>
-                    <?php is_admin($_SESSION['user_data']) ?>
-                </form>
-            </div>
+            <form action="delete-account.php" class="profile-interactions" method="post">
+                <button type="submit" name="add-friend" id="add-button" onclick="">Jelölés</button>
+                <button type="submit" name="send-msg" id="message-button">Üzenet küldése</button>
+                <?php is_admin($_SESSION['user_data']) ?>
+            </form>
             <hr id="profile-separator">
             <span class="other-information-label">Egyéb információ</span>
             <div class="other-information">
