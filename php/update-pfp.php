@@ -36,6 +36,5 @@ if(isset($_FILES['profile-picture']) && $_FILES['profile-picture']['error'] == 0
         echo "<script>alert('Nem megfelelő formátumú a képfájl. Csak JPG, JPEG, PNG és GIF fájlok engedélyezettek.'); window.location.href = 'profile-edit.php';</script>";
         exit;
     }
-
-    header('Location: profile-edit.php');
 }
+header('Location: profile-edit.php');

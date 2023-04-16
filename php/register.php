@@ -98,5 +98,3 @@ if(isset($_POST['register'])) {
     echo "<script>alert('Sikeres regisztráció!');</script>";
     header('Location: ../php/home.php');
 }
-
-?>
