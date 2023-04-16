@@ -33,6 +33,19 @@ require('getpfp.php');
                     }
                 });
             });
+
+            function validateAndSubmit() {
+                document.getElementById('otherform').submit();
+                //  const h = document.getElementById("height").value==="" || /[^0-9]/.test(document.getElementById("height").value);
+                //  const w = document.getElementById("weight").value==="" || /[^0-9]/.test(document.getElementById("weight").value);
+                //  const a = document.getElementById("acquaintances").value==="" || /[^0-9]/.test(document.getElementById("acquaintances").value);
+                //
+                // if (h && w && a)
+                // else{
+                //     let error = "";
+                //     if(!h)error+="Magasság nem tartalmazhat betűt'"
+                // }
+            }
         </script>
     </head>
     <body>
@@ -106,19 +119,19 @@ require('getpfp.php');
                     <tr><td>Lakhely:</td><td><input type="text" name="residence"  value="<?php echo $_SESSION['user_data']['residence'];?>"></td></tr>
                     <tr><td>Munkahely:</td><td><input type="text" name="workplace" value="<?php echo $_SESSION['user_data']['workplace'];?>"></td></tr>
                     <tr><td>E-mail cím:</td><td><input type="email" name="email" value="<?php echo $_SESSION['user_data']['email'];?>"></td></tr>
-                    <tr><td>Magasság:</td><td><input type="number" name="height" min="1" max="300" value="<?php echo $_SESSION['user_data']['height'];?>"></td></tr>
-                    <tr><td>Súly:</td><td><input type="number" name="weight" min="1" max="300" value="<?php echo $_SESSION['user_data']['weight'];?>"></td></tr>
+                    <tr><td>Magasság:</td><td><input type="number" name="height" id="height" min="1" max="300" value="<?php echo $_SESSION['user_data']['height'];?>"></td></tr>
+                    <tr><td>Súly:</td><td><input type="number" name="weight" id="weight" min="1" max="300" value="<?php echo $_SESSION['user_data']['weight'];?>"></td></tr>
                     <tr><td>iWiW Plus: </td><td>
                             <input type="radio" <?php echo $_SESSION['user_data']['iwiwplus']=="true"?"checked":"";?> name="iwiwplus" value="igen">igen</input>
                             <input type="radio" <?php echo $_SESSION['user_data']['iwiwplus']=="true"?"":"checked";?> name="iwiwplus" value="nem">nem</input>
                     </td></tr>
-                    <tr><td>Ismerősök:</td><td><input type="number" name="acquaintances" min="0" max="10000" value="<?php echo $_SESSION['user_data']['acquaintances'];?>" /></td></tr>
+                    <tr><td>Ismerősök:</td><td><input type="number" name="acquaintances" id="acquaintances" min="0" max="10000" value="<?php echo $_SESSION['user_data']['acquaintances'];?>" /></td></tr>
                     <tr><td>Admin:</td><td>
                             <input type="radio" <?php echo $_SESSION['user_data']['admin']=="true"?"checked":"";?> name="admin" value="igen">igen
                             <input type="radio" <?php echo $_SESSION['user_data']['admin']=="true"?"":"checked";?> name="admin" value="nem">nem
                      </td></tr>
                 </table>
-                <button id="otherBtn" onclick="document.getElementById('otherform').submit(); return false;">Egyéb információk frissítése</button>
+                <button id="otherBtn" onclick="validateAndSubmit();">Egyéb információk frissítése</button>
             </form>
         </div>
     </main>

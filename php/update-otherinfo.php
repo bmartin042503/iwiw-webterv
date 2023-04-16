@@ -32,26 +32,27 @@ if(isset($_POST['email'])){
     else $errs .="Email nem lehet üres.";
 }
 
-if(isset($_POST['height'])){
-    if(is_num( $_POST['height'])){
-        if(intval($_POST['height'])>0 && intval($_POST['height'])<300 || $_POST['height']=="")$_SESSION['user_data']['height'] = $_POST['height'];
-        else $errs .="A magasságnak 1 és 299 (zárt intervallum) között kell lennie.";
-    }
-    else $errs .=($errs=="")?"":"\\n"."A magasságnak 1 és 299 (zárt intervallum) közötti egész számnak kell lennie.";
+if(isset($_POST['height'])) {
+    if($_POST['height']!="")
+    if (is_num($_POST['height'])) {
+        if (intval($_POST['height']) > 0 && intval($_POST['height']) < 300) $_SESSION['user_data']['height'] = $_POST['height'];
+        else $errs .= "A magasságnak 1 és 299 (zárt intervallum) között kell lennie.\\n";
+    } else $errs .= "A magasságnak 1 és 299 (zárt intervallum) közötti egész számnak kell lennie.\\n";
 }
-if(isset($_POST['height'])){
-    if(is_num( $_POST['height'])){
-        if(intval($_POST['weight'])>0 && intval($_POST['weight'])<300 || $_POST['weight']=="")$_SESSION['user_data']['weight'] = $_POST['weight'];
-        else $errs .= ($errs=="")?"":"\\n"."A súlynak 1 és 299 (zárt intervallum) között kell lennie.";
+if(isset($_POST['weight'])) {
+    if($_POST['weight']!=""){
+        if (is_num($_POST['weight'])) {
+            if (intval($_POST['weight']) > 0 && intval($_POST['weight']) < 300) $_SESSION['user_data']['weight'] = $_POST['weight'];
+            else $errs .= "A súlynak 1 és 299 (zárt intervallum) között kell lennie.\\n";
+        } else $errs .= "A sújnak 1 és 299 (zárt intervallum) közötti egész kell számnak lennie.\\n";
     }
-    else $errs .=($errs=="")?"":"\\n"."A sújnak 1 és 299 (zárt intervallum) közötti egész kell számnak lennie.";
 }
 if(isset($_POST['acquaintances'])){
     if(is_num( $_POST['acquaintances'])){
         if(intval($_POST['acquaintances'])>=0 && intval($_POST['acquaintances'])<10000 )$_SESSION['user_data']['acquaintances'] = $_POST['acquaintances'];
-        else $errs .= ($errs=="")?"":"\\n"."Az imerősök számának 0 és 10000 között (zárt intervallum) között kell lennie.";
+        else $errs .= "Az imerősök számának 0 és 10000 között (zárt intervallum) között kell lennie.\\n";
     }
-    else  $errs .=($errs=="")?"":"\\n"."Az ismerősök számának 0 és 10000 között (zárt intervallum) közötti egész számnak  kell lennie.";
+    else $errs .="Az ismerősök számának 0 és 10000 között (zárt intervallum) közötti egész számnak  kell lennie.\\n";
 }
 
 
@@ -66,7 +67,7 @@ else header('Location: profile-edit.php');
 //foreach ($_POST as $key => $value) {
 //    echo $key . ': ' . $value . '<br>';
 //}
-//
+
 //foreach ($_SESSION['user_data'] as $key => $value) {
 //    echo $key . ': ' . $value . '<br>';
 //}
