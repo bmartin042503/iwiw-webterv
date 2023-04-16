@@ -98,18 +98,29 @@ require('getpfp.php');
                 </div>
             </div>
         </div>
-        <hr id="profile-separator">
+        <hr class="profile-separator">
         <span class="other-information-label">Egyéb információ</span>
         <div class="other-information">
-            <span class="user-location">Lakhely: <?php echo $_SESSION['user_data']['residence'];?></span>
-            <span class="user-workplace">Munkahely: <?php echo $_SESSION['user_data']['workplace'];?></span>
-            <span class="user-email">E-mail cím: <?php echo $_SESSION['user_data']['email'];?></span>
-            <span class="user-registered">Regisztráció ideje: <?php echo $_SESSION['user_data']['year_of_registration'];?></span>
-            <span class="user-height">Magasság: <?php echo $_SESSION['user_data']['height']==''?"(nem adta meg)":$_SESSION['user_data']['height'];?></span>
-            <span class="user-weight">Súly: <?php echo $_SESSION['user_data']['weight']==''?"(nem adta meg)":$_SESSION['user_data']['weight'];?></span>
-            <span class="user-plus">iWiW Plus: <?php echo $_SESSION['user_data']['iwiwplus']==1?"igen":"nem";?></span>
+            <form id="otherform" action="update-otherinfo.php" method="post" enctype="multipart/form-data">
+                <table>
+                    <tr><td>Lakhely:</td><td><input type="text" name="residence"  value="<?php echo $_SESSION['user_data']['residence'];?>"></td></tr>
+                    <tr><td>Munkahely:</td><td><input type="text" name="workplace" value="<?php echo $_SESSION['user_data']['workplace'];?>"></td></tr>
+                    <tr><td>E-mail cím:</td><td><input type="email" name="email" value="<?php echo $_SESSION['user_data']['email'];?>"></td></tr>
+                    <tr><td>Magasság:</td><td><input type="number" name="height" min="1" max="300" value="<?php echo $_SESSION['user_data']['height'];?>"></td></tr>
+                    <tr><td>Súly:</td><td><input type="number" name="weight" min="1" max="300" value="<?php echo $_SESSION['user_data']['weight'];?>"></td></tr>
+                    <tr><td>iWiW Plus: </td><td>
+                            <input type="radio" <?php echo $_SESSION['user_data']['iwiwplus']=="true"?"checked":"";?> name="iwiwplus" value="igen">igen</input>
+                            <input type="radio" <?php echo $_SESSION['user_data']['iwiwplus']=="true"?"":"checked";?> name="iwiwplus" value="nem">nem</input>
+                    </td></tr>
+                    <tr><td>Ismerősök:</td><td><input type="number" name="acquaintances" min="0" max="10000" value="<?php echo $_SESSION['user_data']['acquaintances'];?>" /></td></tr>
+                    <tr><td>Admin:</td><td>
+                            <input type="radio" <?php echo $_SESSION['user_data']['admin']=="true"?"checked":"";?> name="admin" value="igen">igen
+                            <input type="radio" <?php echo $_SESSION['user_data']['admin']=="true"?"":"checked";?> name="admin" value="nem">nem
+                     </td></tr>
+                </table>
+                <button id="otherBtn" onclick="document.getElementById('otherform').submit(); return false;">Egyéb információk frissítése</button>
+            </form>
         </div>
-        <span class="user-friends">Ismerősök (<?php echo $_SESSION['user_data']['acquaintances'];?>)</span>
     </main>
     </body>
 </html>
