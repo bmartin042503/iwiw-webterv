@@ -17,7 +17,7 @@
     height: 250px;
 }
 
-#profile-separator {
+.profile-separator {
     margin-top: 10px;;
 }
 .profile-info {
@@ -40,4 +40,17 @@
 
 .pfp-containter{
     width: 240px;
+}
+
+#otherBtn{
+    width: 300px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: #051865;
+    margin-top: 7px;
+}
+#otherBtn:hover {
+    background-color: #041147;
 }
