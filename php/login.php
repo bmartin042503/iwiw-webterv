@@ -20,10 +20,10 @@ if(isset($_POST['login_submit'])) {
 
             header('Location: ../php/home.php');
         } else {
-            echo "<script>alert('Helytelen jelszó!'); window.location.href = '../index.html';</script>";
+            echo "<script>alert('Helytelen jelszó!'); window.location.href = '../index.php';</script>";
         }
     } else {
-        echo "<script>alert('Nincs ilyen fiók!'); window.location.href = '../index.html';</script>";
+        echo "<script>alert('Nincs ilyen fiók!'); window.location.href = '../index.php';</script>";
     }
 }
 

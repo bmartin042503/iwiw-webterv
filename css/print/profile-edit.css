@@ -61,3 +61,12 @@
 #pass-info{
     margin-top: 0;
 }
+
+#deluser {
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    width: 220px;
+    margin-top: 7px;
+}
