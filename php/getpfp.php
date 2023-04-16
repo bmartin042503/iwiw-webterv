@@ -22,3 +22,4 @@ function get_profile_picture_userdir($user_dir)
     }
     return '../img/static/default-profile.png';
 }
+?>

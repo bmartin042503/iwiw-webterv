@@ -78,7 +78,13 @@ main {
     width: 100%;
 }
 
-.post-details, .comment-details {
+.comment-create-user-profile {
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+}
+
+.post-details, .comment-details, .comment-create{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -99,19 +105,48 @@ main {
     text-decoration: underline;
 }
 
-.post, .post-create {
+.post, .post-create, .comment-create {
     color: black;
+}
+
+.comment-create {
+    margin-top: 15px;
+}
+
+.comment-hidden {
+    display: none;
+}
+
+#post-create-input, #comment-create-input {
+    font-family: 'Roboto', 'Arial';
+    resize: none;
+    border-radius: 10px;
+    border: 2px solid #c6c6c6;
+    width: 100%;
+}
+
+#comment-create-input {
+    margin-left: 10px;
+    padding: 10px;
+    font-size: .9em;
+}
+
+.send-message-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 7px;
+}
+
+.comment-send-img {
+    width: 25px;
+    height: 25px;
 }
 
 #post-create-input {
     margin-left: 10px;
     padding: 10px;
     font-size: 1em;
-    font-family: 'Roboto', 'Arial';
-    resize: none;
-    border-radius: 10px;
-    border: 2px solid #c6c6c6;
-    width: 100%;
 }
 
 .post-create-buttons {
@@ -357,6 +392,10 @@ main {
     }
     .posts::-webkit-scrollbar {
         display: none;
+    }
+    .post-create-buttons {
+        justify-content: space-between;
+        font-size: 0.8em;
     }
 }
 .posts .post-user-img,.posts .post-user-name,.comment-user-img,.comment-user-name,.brday-name,.brday-profile{

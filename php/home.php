@@ -71,16 +71,49 @@ function display_posts() {
         echo '<span class="share-count i-label">' . $post_data['shares'] . ' megosztás</span>';
         echo '</div>';
         echo '</div>';
+        echo '<hr class="post-bottom-separator">';
 
         if($comment_count > 0) {
-            echo '<hr class="post-bottom-separator">';
             echo '<div class="post-comments">';
 
+            $visible_comments = 0;
             foreach($comments as $comment) {
-                // TODO : majd ha lesz komment létrehozás akkor befejezem itt
+                if($visible_comments >= 2) {
+                    echo '<div class="comment comment-hidden">';
+                } else {
+                    echo '<div class="comment">';
+                }
+                $comment_user_data = find_user_by_id($comment['user_id']);
+                $profile_picture = get_profile_picture($comment_user_data);
+
+                //  echo '<div class="comment">';
+                echo '<div class="comment-details">';
+                echo '<img class="comment-user-img" src="' . $profile_picture . '" alt="profilkép" title="' . $comment_user_data['username'] . '">';
+                echo '<div class="comment-details-info">';
+                echo '<span class="comment-user-name" title="' . $comment_user_data['username'] . '">' . $comment_user_data['username'] . '</span>';
+                echo '<span class="comment-date">' . $comment['date'] . '</span>';
+                echo '</div>';
+                echo '</div>';
+                echo '<p class="comment-description">' . nl2br($comment['description']) . '</p>';
+                echo '</div>';
+                $visible_comments++;
+            }
+
+            if($comment_count > 2) {
+                echo '<span class="post-comments-expand" onclick="toggleComments(this)">További hozzászólások megtekintése..</span>';
             }
             echo '</div>';
         }
+        echo '<form method="post" action="add_comment.php"">';
+        echo '<input type="hidden" name="post_id" value="' . $post_data['id'] . '">';
+        echo '<div class="comment-create">';
+        echo '<img class="comment-create-user-profile" src="' . get_profile_picture($_SESSION['user_data']) . '" alt="profilkép" title="' . $_SESSION['user_data']['username'] . '">';
+        echo '<textarea name="comment-create-description" id="comment-create-input" placeholder="Szólj hozzá.." maxlength="600" rows="1"></textarea>';
+        echo '<button class="send-message-button" type="submit" name="submit-comment">';
+        echo '<img class="comment-send-img" src="../img/icons/comment-send.png" alt="Komment elküldése">';
+        echo '</button>';
+        echo '</div>';
+        echo '</form>';
         echo '</div>';
     }
 }
@@ -139,6 +172,24 @@ function display_posts() {
                 }
                 handleInteractionLabel();
             });
+
+            function toggleComments(element) {
+                const comments = element.parentNode.querySelectorAll('.comment-hidden');
+                const expandText = 'További hozzászólások megtekintése..';
+                const collapseText = 'Hozzászólások elrejtése';
+
+                for (let i = 0; i < comments.length; i++) {
+                    const comment = comments[i];
+
+                    if (comment.style.display === 'none' || !comment.style.display) {
+                        comment.style.display = 'block';
+                        element.textContent = collapseText;
+                    } else {
+                        comment.style.display = 'none';
+                        element.textContent = expandText;
+                    }
+                }
+            }
 
             function redirect(obj) {
                 var title = obj.title;
