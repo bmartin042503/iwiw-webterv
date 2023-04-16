@@ -62,15 +62,18 @@ require('getpfp.php');
 
             function validateAndSubmit() {
                 document.getElementById('otherform').submit();
-                //  const h = document.getElementById("height").value==="" || /[^0-9]/.test(document.getElementById("height").value);
-                //  const w = document.getElementById("weight").value==="" || /[^0-9]/.test(document.getElementById("weight").value);
-                //  const a = document.getElementById("acquaintances").value==="" || /[^0-9]/.test(document.getElementById("acquaintances").value);
-                //
-                // if (h && w && a)
-                // else{
-                //     let error = "";
-                //     if(!h)error+="Magasság nem tartalmazhat betűt'"
-                // }
+            }
+
+            function passcheckAndSubmit(){
+                const pass1 = document.getElementById("newpswd");
+                const pass2 = document.getElementById("newpswdre");
+
+                if(pass1.value==pass2.value){
+                    document.getElementById("passform").submit();
+                }
+                else{
+                    alert("Nem egyezik meg a két új jelszó!")
+                }
             }
         </script>
     </head>
@@ -160,6 +163,18 @@ require('getpfp.php');
                 <button id="otherBtn" onclick="validateAndSubmit();">Egyéb információk frissítése</button>
             </form>
         </div>
+        <hr class="profile-separator">
+        <span class="other-information-label">Jelszó módosítás</span>
+        <p id="pass-info">A jelszónak legalább 8 karakter hosszúnak kell lennie, tartalmaznia kell legalább egy nagybetűt és egy számot.</p>
+            <table>
+                <form id="passform" action="update-password.php" method="post" enctype="multipart/form-data">
+                    <tr><td>régi jelszó:</td><td><input typea="password" name="oldpswd" id="oldpswd" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"></td></tr>
+                    <tr><td>új jelszó:</td><td><input typea="password" name="newpswd" id="newpswd" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"></td></tr>
+                    <tr><td>új jelszó ismét:</td><td><input typea="password" name="newpswdre" id="newpswdre" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"></td></tr>
+                 </form>
+                <tr><td colspan="2"><button id="up-pass-btn" onclick="passcheckAndSubmit()">Jelszó frissítése</button></td> </tr>
+            </table>
+
     </main>
     </body>
 </html>
