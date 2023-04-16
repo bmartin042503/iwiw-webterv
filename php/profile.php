@@ -47,6 +47,16 @@ if($userid==''){
 }
 
 $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
+
+if(isset($_POST['delete-user'])) {
+    // TODO : $user_data['id']-t átadni törlő PHP kódra
+}
+
+function is_admin($user_data) {
+    if($user_data['admin'] == "true") {
+        echo '<button type="submit" name="delete-user" id="message-button">Felhasználó törlése</button>';
+    } 
+}
 ?>
 
 <!DOCTYPE html>
@@ -174,8 +184,11 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
                 </div>
             </div>
             <div class="profile-interactions">
-                <button type="submit" id="add-button" onclick="">Jelölés</button>
-                <button type="submit" id="message-button">Üzenet küldése</button>
+                <form action="" method="post">
+                    <button type="submit" name="add-friend" id="add-button" onclick="">Jelölés</button>
+                    <button type="submit" name="send-msg" id="message-button">Üzenet küldése</button>
+                    <?php is_admin($_SESSION['user_data']) ?>
+                </form>
             </div>
             <hr id="profile-separator">
             <span class="other-information-label">Egyéb információ</span>

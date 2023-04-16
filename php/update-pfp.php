@@ -38,3 +38,4 @@ if(isset($_FILES['profile-picture']) && $_FILES['profile-picture']['error'] == 0
     }
 }
 header('Location: profile-edit.php');
+?>
