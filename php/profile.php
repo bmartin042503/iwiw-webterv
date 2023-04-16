@@ -34,22 +34,20 @@ function get_uid($username)
 
 $users_dir = '../db/users/';
 $userid = "";
+$notfound = false;
 
 if(isset($_GET['user'])) {
     $userid = get_uid($_GET['user']);
 }
 else{
-    //user not found
+    $notfound = true; //user not found
 }
 if($userid==''){
-    //user not found
+    $notfound = true;//user not found
 }
-
-//$userid = '643a710a5a5b41.52901773';
 
 $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
 ?>
-
 
 <!DOCTYPE html>
 <html lang="hu">
@@ -61,6 +59,67 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
         <link rel="stylesheet" type="text/css" href="../css/header.css"/>
         <link rel="stylesheet" type="text/css" href="../css/print/profile.css"/>
         <link rel="icon" type="image/x-icon" href="../img/iwiw-logo-16x16.png"/>
+        <script>
+            function redirect(obj) {
+                var title = obj.title;
+                if(obj.title == "") {
+                    title = obj.textContent;
+                }
+                window.location.href = "profile.php?user=" + encodeURIComponent(title);
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('profilkep').addEventListener('click', function () {
+                    var dropdownMenu = document.getElementById('legordulomenu');
+                    if (getComputedStyle(dropdownMenu).display === 'none') {
+                        dropdownMenu.style.display = 'block';
+                    } else {
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
+
+                document.addEventListener('click', function (event) {
+                    var dropdownMenu = document.getElementById('legordulomenu');
+                    var profilKep = document.getElementById('profilkep');
+                    if (!profilKep.contains(event.target)) {
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
+
+                if(<?php echo (bool)$notfound==0?"false":(bool)$notfound; ?>)
+                {
+                    let profileInfo = document.getElementsByClassName('profile-info');
+                    for (let i = 0; i < profileInfo.length; i++) profileInfo[i].innerHTML='<span id=missing-user>Nem létező vagy törölt felhasználó</span>';
+
+                    profileInfo = document.getElementsByClassName('profile-interactions');
+                    for (let i = 0; i < profileInfo.length; i++) profileInfo[i].innerHTML='';
+
+                    profileInfo = document.getElementById('profile-separator');
+                    profileInfo.style="visibility: hidden;"
+
+                    profileInfo = document.getElementsByClassName('other-information-label');
+                    for (let i = 0; i < profileInfo.length; i++) profileInfo[i].innerHTML='';
+
+                    profileInfo = document.getElementsByClassName('other-information');
+                    for (let i = 0; i < profileInfo.length; i++) profileInfo[i].innerHTML='';
+
+                    profileInfo = document.getElementsByClassName('user-friends');
+                    for (let i = 0; i < profileInfo.length; i++) profileInfo[i].innerHTML='';
+
+                }
+
+                if(<?php echo ($user_data['username']==$_SESSION['user_data']['username'])?"true":"false"; ?>){
+                    let btn = document.getElementById("add-button");
+                    btn.textContent="Profil szerkestése";
+                    btn.onclick = function() {
+                        window.location.href = "";
+                    }
+
+                    btn=document.getElementById("message-button");
+                    btn.style="visibility:hidden;";
+                }
+            });
+        </script>
     </head>
     <body>
         <header>
@@ -85,13 +144,21 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
                 <ul>
                     <li><img class="icon profile" src="../img/icons/added-icon.png" alt="új ismerősök menüpont"></li>
                     <li><img class="icon profile" src="../img/icons/message-icon.png" alt="üzenetek menüpont"></li>
-                    <li><img class="icon profile pic" src="<?php echo get_profile_picture($_SESSION['user_data']); ?>" alt="profilkép menüpont"></li>
+                    <li><img class="icon profile pic" id="profilkep" src="<?php echo get_profile_picture($_SESSION['user_data']); ?>" alt="profilkép menüpont"></li>
                 </ul>
             </nav>
         </header>
+        <nav class="dropdown-menu" id="legordulomenu">
+            <ul>
+                <li><span onclick="redirect(this)" title="<?php echo $_SESSION['user_data']['username'] ?>" id="ddm-profile">Profilom (<?php echo $_SESSION['user_data']['username']; ?>)</span></li>
+                <li><a href="#">Beállítások és adatvédelem</a></li>
+                <li><a href="../pages/footer/contact.html">Kapcsolatfelvétel</a></li>
+                <li><a href="logout.php" id="logout-text">Kijelentkezés</a></li>
+            </ul>
+        </nav>
         <main>
             <div>
-                <a href="home.html"><img src="../img/iwiw-logo.png" class="iwiw-logo" alt="iwiw logó"></a>
+                <a href="home.php"><img src="../img/iwiw-logo.png" class="iwiw-logo" alt="iwiw logó"></a>
             </div>
             <div class="profile-info">
                 <img src="<?php echo get_profile_picture_userdir($users_dir.$userid);?>" class="user-img" alt="profilkép">
@@ -107,8 +174,8 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
                 </div>
             </div>
             <div class="profile-interactions">
-                <button type="submit" class="add-button">Jelölés</button>
-                <button type="submit" class="message-button">Üzenet küldése</button>
+                <button type="submit" id="add-button" onclick="">Jelölés</button>
+                <button type="submit" id="message-button">Üzenet küldése</button>
             </div>
             <hr id="profile-separator">
             <span class="other-information-label">Egyéb információ</span>

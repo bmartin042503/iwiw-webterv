@@ -100,7 +100,7 @@ button {
     margin-right: 10px;
 }
 
-.message-button {
+#message-button {
     transition: background-color 0.3s ease;
     cursor: pointer;
     font-weight: bold;
@@ -108,11 +108,16 @@ button {
     background-color: #f75d5d;
 }
 
-.message-button:hover {
+#message-button:hover {
     background-color: #fc2a2a;
 }
 
-.add-button {
+#missing-user{
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+#add-button {
     transition: background-color 0.3s ease;
     cursor: pointer;
     font-weight: bold;
@@ -120,7 +125,7 @@ button {
     background-color: #051865;
 }
 
-.add-button:hover {
+#add-button:hover {
     background-color: #041147;
 }
 
