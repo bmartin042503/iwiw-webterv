@@ -71,11 +71,18 @@ require('getpfp.php');
         </ul>
     </nav>
     <main>
-        <div>
-            <a href="home.php"><img src="../img/iwiw-logo.png" class="iwiw-logo" alt="iwiw logó"></a>
-        </div>
+<!--        <div>-->
+<!--            <a href="home.php"><img src="../img/iwiw-logo.png" class="iwiw-logo" alt="iwiw logó"></a>-->
+<!--        </div>-->
         <div class="profile-info">
-            <img src="<?php echo get_profile_picture($_SESSION['user_data']);?>" class="user-img" alt="profilkép">
+            <div class="pfp-containter">
+                <img src="<?php echo get_profile_picture($_SESSION['user_data']);?>" class="user-img" alt="profilkép">
+                <form id="myForm" action="update-pfp.php" method="post" enctype="multipart/form-data">
+                    <input type="file" id="myFileInput" name="profile-picture" style="display: none;">
+                    <button id="myButton" onclick="document.getElementById('myFileInput').click(); return false;">Profilkép frissítése</button>
+                    <button id="introButton" onclick="document.getElementById('introduction-form').submit(); return false;">Bemutatkozás frissítése</button>
+                </form>
+            </div>
             <div class="profile-details">
                 <div>
                     <span class="user-fullname"><?php echo $_SESSION['user_data']['username'];?></span>
@@ -83,15 +90,13 @@ require('getpfp.php');
                          style="visibility: <?php echo $_SESSION['user_data']['iwiwplus']==1?"visible":"hidden";?>">
                     <span class="iwiw-plus-label" style="visibility: <?php echo $_SESSION['user_data']['iwiwplus']==1?"visible":"hidden";?>">>tag</span>
                 </div>
-                <p class="user-introduction"><?php echo $_SESSION['user_data']['introduction'];?></p>
-                <span class="user-birthdate">Születési idő: <?php echo $_SESSION['user_data']['year_of_birth'];?></span>
+                <div>
+                    <form id="introduction-form" action="update-intro.php" method="post" enctype="multipart/form-data">
+                        <label class="user-introduction" for="introduction-label">Bemutatkozás (max. 600 karakter):</label>
+                        <textarea name="introduction" id="introduction-label" maxlength="600" rows="7"><?php echo $_SESSION['user_data']['introduction'];?></textarea>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="profile-interactions">
-            <form id="myForm" action="update-pfp.php" method="post" enctype="multipart/form-data">
-                <input type="file" id="myFileInput" name="profile-picture" style="display: none;">
-                <button id="myButton" onclick="document.getElementById('myFileInput').click(); return false;">Profilkép frissítése</button>
-            </form>
         </div>
         <hr id="profile-separator">
         <span class="other-information-label">Egyéb információ</span>
