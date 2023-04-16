@@ -38,7 +38,7 @@ function display_posts() {
         echo '<div class="post-details">';
         echo '<img class="post-user-img" src="' . $profile_picture . '" alt="profilkép" title="' . $post_user_data['username'] . '">';
         echo '<div class="post-details-info">';
-        echo '<span class="post-user-name" title="' . $post_user_data['username'] . '">' . $post_user_data['username'] . '</span>';
+        echo '<span class="post-user-name" title="' . $post_user_data['username'] . '" onclick="redirect(this)">' . $post_user_data['username'] . '</span>';
         echo '<span class="post-date">' . $post_data['date'] . '</span>';
         echo '</div>';
         echo '</div>';
@@ -90,7 +90,7 @@ function display_posts() {
                 echo '<div class="comment-details">';
                 echo '<img class="comment-user-img" src="' . $profile_picture . '" alt="profilkép" title="' . $comment_user_data['username'] . '">';
                 echo '<div class="comment-details-info">';
-                echo '<span class="comment-user-name" title="' . $comment_user_data['username'] . '">' . $comment_user_data['username'] . '</span>';
+                echo '<span class="comment-user-name" title="' . $comment_user_data['username'] . '" onclick="redirect(this)">' . $comment_user_data['username'] . '</span>';
                 echo '<span class="comment-date">' . $comment['date'] . '</span>';
                 echo '</div>';
                 echo '</div>';

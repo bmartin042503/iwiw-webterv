@@ -110,7 +110,7 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
 
                 if(<?php echo ($user_data['username']==$_SESSION['user_data']['username'])?"true":"false"; ?>){
                     let btn = document.getElementById("add-button");
-                    btn.textContent="Profil szerkestése";
+                    btn.textContent="Profil szerkesztése";
                     btn.onclick = function() {
                         window.location.href = "";
                     }
