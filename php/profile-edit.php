@@ -75,6 +75,12 @@ require('getpfp.php');
                     alert("Nem egyezik meg a két új jelszó!")
                 }
             }
+
+            function confirmdel(){
+                if (confirm("Biztosan törölni szeretnéd a fiokodat?")) {
+                    document.getElementById("delete").submit();
+                }
+            }
         </script>
     </head>
     <body>
@@ -166,14 +172,20 @@ require('getpfp.php');
         <hr class="profile-separator">
         <span class="other-information-label">Jelszó módosítás</span>
         <p id="pass-info">A jelszónak legalább 8 karakter hosszúnak kell lennie, tartalmaznia kell legalább egy nagybetűt és egy számot.</p>
-            <table>
-                <form id="passform" action="update-password.php" method="post" enctype="multipart/form-data">
-                    <tr><td>régi jelszó:</td><td><input typea="password" name="oldpswd" id="oldpswd" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"></td></tr>
-                    <tr><td>új jelszó:</td><td><input typea="password" name="newpswd" id="newpswd" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"></td></tr>
-                    <tr><td>új jelszó ismét:</td><td><input typea="password" name="newpswdre" id="newpswdre" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"></td></tr>
-                 </form>
-                <tr><td colspan="2"><button id="up-pass-btn" onclick="passcheckAndSubmit()">Jelszó frissítése</button></td> </tr>
-            </table>
+        <table>
+            <form id="passform" action="update-password.php" method="post" enctype="multipart/form-data">
+                <tr><td>régi jelszó:</td><td><input typea="password" name="oldpswd" id="oldpswd" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"></td></tr>
+                <tr><td>új jelszó:</td><td><input typea="password" name="newpswd" id="newpswd" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"></td></tr>
+                <tr><td>új jelszó ismét:</td><td><input typea="password" name="newpswdre" id="newpswdre" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$"></td></tr>
+            </form>
+            <tr><td colspan="2"><button id="up-pass-btn" onclick="passcheckAndSubmit()">Jelszó frissítése</button></td> </tr>
+        </table>
+
+        <hr class="profile-separator">
+        <button id="deluser" onclick="confirmdel()">Felhasználói fiok törlése</button>
+        <form id="delete" action="delete-account.php" method="post" enctype="multipart/form-data" style="display: none">
+            <input type="text" name="uid" value="<?php echo $_SESSION['user_data']['id'];?>">
+        </form>
 
     </main>
     </body>
