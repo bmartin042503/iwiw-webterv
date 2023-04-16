@@ -33,11 +33,13 @@ if(isset($_POST['email'])){
 }
 
 if(isset($_POST['height'])) {
-    if($_POST['height']!="")
-    if (is_num($_POST['height'])) {
-        if (intval($_POST['height']) > 0 && intval($_POST['height']) < 300) $_SESSION['user_data']['height'] = $_POST['height'];
-        else $errs .= "A magasságnak 1 és 299 (zárt intervallum) között kell lennie.\\n";
-    } else $errs .= "A magasságnak 1 és 299 (zárt intervallum) közötti egész számnak kell lennie.\\n";
+    if($_POST['height']!="") {
+        if (is_num($_POST['height'])) {
+            if (intval($_POST['height']) > 0 && intval($_POST['height']) < 300) $_SESSION['user_data']['height'] = $_POST['height'];
+            else $errs .= "A magasságnak 1 és 299 (zárt intervallum) között kell lennie.\\n";
+        } else $errs .= "A magasságnak 1 és 299 (zárt intervallum) közötti egész számnak kell lennie.\\n";
+    }
+    else $_SESSION['user_data']['height'] = $_POST['height'];
 }
 if(isset($_POST['weight'])) {
     if($_POST['weight']!=""){
@@ -46,6 +48,7 @@ if(isset($_POST['weight'])) {
             else $errs .= "A súlynak 1 és 299 (zárt intervallum) között kell lennie.\\n";
         } else $errs .= "A sújnak 1 és 299 (zárt intervallum) közötti egész kell számnak lennie.\\n";
     }
+    else $_SESSION['user_data']['weight'] = $_POST['weight'];
 }
 if(isset($_POST['acquaintances'])){
     if(is_num( $_POST['acquaintances'])){

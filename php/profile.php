@@ -112,7 +112,7 @@ $user_data = unserialize(file_get_contents($users_dir.$userid."/data.txt"));
                     let btn = document.getElementById("add-button");
                     btn.textContent="Profil szerkesztése";
                     btn.onclick = function() {
-                        window.location.href = "";
+                        window.location.href = "profile-edit.php";
                     }
 
                     btn=document.getElementById("message-button");
