@@ -26,11 +26,11 @@ if(isset($_POST['uid'])){
                 if(file_exists($data_file)) {
                     $post_data = unserialize(file_get_contents($data_file));
                     if($post_data['user_id'] == $_POST['uid']) {
-                        $files = scandir($post_dir);
+                        $files = scandir($post_del_path . $post_dir);
                         foreach ($files as $file) {
-                            unlink("$post_dir/$file");
+                            unlink("$post_del_path/$post_dir/$file");
                         }
-                        rmdir($post_dir);
+                        rmdir($post_del_path . $post_dir);
                     }
                 }
             }
